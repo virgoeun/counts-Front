@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 // import AddProject from "../components/AddProject";
 import ProfileCard from "../components/ProfileCard";
+import DailyApp from "../components/DailyApp";
 
 const API_URL = "http://localhost:5005";
 
@@ -29,7 +30,9 @@ function ProfilePage() {
   console.log(profile);
   return (
     <div className="Profile-details">
-      {/* <AddProject refreshProjects={getAllProfile} /> */}
+      <div className="dailyLog-container">
+        <DailyApp  addFormData={getProfile}/>
+      </div>
 
       {profile.map((profile, index) => (
         <ProfileCard key={index} {...profile} />
