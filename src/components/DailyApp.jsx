@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import "../index.css";
-import axios from "axios"; 
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { ActionButton } from "../components/DailyActivity/FormButton";
@@ -36,14 +36,13 @@ import { companyName } from "../static/questions";
 const ActivatorContainer = styled.div``;
 const API_URL = "http://localhost:5005";
 
-export default function DailyApp({addFormData}) {
+export default function DailyApp({ data }) {
   const [surveyOpen, setSurveyOpen] = useState(false);
   const [surveyResponse, setSurveyResponse] = useState({});
 
-
   const sendProfileData = (data) => {
     axios
-      .post(`${API_URL}/api/profile`, data)
+      .post(`${API_URL}/api/checkin`, data)
       .then((response) => {
         addFormData();
         console.log("Profile data sent successfully:", response.data);
@@ -54,33 +53,31 @@ export default function DailyApp({addFormData}) {
       });
   };
 
-
-
   return (
     <div className="App">
       <ActivatorContainer>
-        <h3>{surveyResponse.completed && `Remember, every moves COUNTS! 😉`}</h3>
-        {/* <ActionButton onClick={() => setSurveyOpen(!surveyOpen)}>
+        <h3>
+          {surveyResponse.completed && `Remember, every moves COUNTS! 😉`}
+        </h3>
+        <ActionButton onClick={() => setSurveyOpen(!surveyOpen)}>
           Track My Log
-        </ActionButton> */}
-        <ActionButton> 
- <Link to="/profile">
-          <button>Check All My Logs</button>
-        </Link>
         </ActionButton>
-        <Link to="/chart">
-  
-          <button>Check Activity Charts</button>
-        </Link>
+      
+          <Link to="/profile">
+           
+             <button>Check All My Logs </button> 
+          </Link>
+     
       </ActivatorContainer>
       <Survey
         onClose={() => setSurveyOpen(false)}
-        onSubmit={(data) => {setSurveyResponse(data);
-        
+        onSubmit={(data) => {
+          setSurveyResponse(data);
+
           if (data.completed) {
             sendProfileData(data);
-        
-        }}}
+          }
+        }}
         open={surveyOpen}
         title={companyName}
       />
@@ -97,9 +94,8 @@ export default function DailyApp({addFormData}) {
         </ul>
       )}
       <Link to="/">
-  
-  <button>Back to Homepage</button>
-</Link>
+        <button>Back to Homepage</button>
+      </Link>
     </div>
   );
 }
