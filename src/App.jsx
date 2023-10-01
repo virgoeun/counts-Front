@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
+import ActivityDetails from "./components/ActivityDetails";
 import DailyApp from "./components/DailyApp";
 
 // import ProjectListPage from "./pages/ProjectListPage";
@@ -13,6 +14,8 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
+import Checkin from "./pages/Checkin";
+import EditCheckin from "./pages/EditCheckin";
 //import InspirationPage from "./pages/Inspo";
 
 function App() {
@@ -27,16 +30,28 @@ function App() {
           element={
             <IsPrivate>
               
-              <DailyApp />
+              <ProfilePage />
             </IsPrivate>
           }
         />
-        <Route
-          path="/profile"
+
+<Route
+          path="/checkin"
           element={
             <IsPrivate>
               
-              <ProfilePage />
+              <Checkin />
+            </IsPrivate>
+          }
+        />
+
+<Route path="/checkin/:activityId" element={<ActivityDetails />} />    
+        <Route
+          path="/checkin/edit/:activityId"
+          element={
+            <IsPrivate>
+              
+              <EditCheckin />
             </IsPrivate>
           }
         />
