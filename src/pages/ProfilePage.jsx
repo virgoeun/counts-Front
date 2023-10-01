@@ -29,7 +29,7 @@ function ProfilePage() {
   useEffect(() => {
     getProfile();
   }, []);
-  console.log(profile);
+  console.log("Profile", profile);
   return (
     <div className="Profile-details">
       <ProfileDetails user={profile}/>

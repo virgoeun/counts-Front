@@ -1,21 +1,21 @@
 // src/pages/ProjectDetailsPage.jsx
 // ... previous imports stay unchanged
-import { Link, useParams } from "react-router-dom"; // <== IMPORT 
+import { Link, useParams } from "react-router-dom"; 
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";        // <== ADD
+const API_URL = "http://localhost:5005";        
 
 function ActivityDetails (props) {
   const [activity, setactivity] = useState(null);
   // Get the URL parameter `:projectId` 
-  const { activityId } = useParams();            // <== ADD
+  const { activityId } = useParams();       
   
   const storedToken = localStorage.getItem("authToken");
   console.log("StoredToken", storedToken)
   // Helper function that makes a GET request to the API
   // and retrieves the project by id
-  const getActivity = () => {          //  <== ADD A NEW FUNCTION
+  const getActivity = () => {          
     axios
       .get(`${API_URL}/api/checkin/${activityId}`,{
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -29,7 +29,7 @@ function ActivityDetails (props) {
   };
   
   
-  useEffect(()=> {                   // <== ADD AN EFFECT
+  useEffect(()=> {                   
     getActivity();
   }, [] );
 
@@ -59,7 +59,9 @@ function ActivityDetails (props) {
             <p>{sport.description}</p>
           </li>
         ))}
-
+  {/* <AddActivity refreshProject={getActivity} /> */}
+      
+  {/* <AddActivity refreshProject={getActivity} activityId={activityId} /> */}
       <Link to="/checkin">
         <button>Back to My Logs</button>
       </Link>

@@ -45,7 +45,8 @@ function App() {
           }
         />
 
-<Route path="/checkin/:activityId" element={<ActivityDetails />} />    
+<Route path="/checkin/:activityId" element={<ActivityDetails />} />  
+<Route path="/checkin/:userId" element={<Checkin />} />   
         <Route
           path="/checkin/edit/:activityId"
           element={
