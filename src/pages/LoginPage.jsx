@@ -6,7 +6,6 @@ import { AuthContext } from "../context/auth.context";
 const API_URL = "http://localhost:5005";
 //const API_URL = "https://counts-back.onrender.com"
 
-
 function LoginPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +29,7 @@ function LoginPage(props) {
 
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/");
+        navigate("/profile");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;

@@ -37,13 +37,20 @@ function ActivityDetails (props) {
   return (
     <div className="ActivityDetails">
       {activity && (
-        <>
-          <h1>{activity.date}</h1>
+        
+         
+          <li className="Sports card">
+              <h4>Date:</h4>
+             <h3>{activity.date}</h3>
+             <h4>Stress Level:</h4>
           <p>{activity.stress}</p>
+          <h4>Hydration Level:</h4>
           <p>{activity.water}</p>
+          <h4>Sleep Quality:</h4>
           <p>{activity.sleep}</p>
-          <p>{activity.sports.type}</p>
-        </>
+          </li>
+        
+       
       )}
 
       {activity &&

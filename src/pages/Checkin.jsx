@@ -9,9 +9,11 @@ import AddActivity from "../components/addActivity";
 
 const API_URL = "http://localhost:5005";
 //function Checkin() {{ _id, date, sleep, water, stress, sports, note }...
-function Checkin({id}) {
+function Checkin() {
 const [checkin, setCheckin] = useState([]);
-const userId = id;
+//{id} props?
+//const userId = id;
+
   // console.log("please", userId) // I got the ID but...
 
   const getActivity = () => {

@@ -103,10 +103,10 @@ function EditCheckin() {
           onChange={(e) => setStress(e.target.value)}
         >
           <option value="">Choose Stress Level</option>
-          <option value="Burned-out🤯">Burned-out🤯</option>
-          <option value="Middle">Middle</option>
-          <option value="Low">Low</option>
-          <option value="No Stress!🥰">No Stress!🥰</option>
+          <option value="0">Burned-out🤯</option>
+          <option value="4">Middle</option>
+          <option value="8">Low</option>
+          <option value="10">No Stress!🥰</option>
         </select>
         <label>Sleep:</label>
         <select
@@ -115,11 +115,11 @@ function EditCheckin() {
           onChange={(e) => setSleep(e.target.value)}
         >
           <option value="">Choose Sleep Duration</option>
-          <option value="+8 hours">+8 hours</option>
-          <option value="+7 hours">+7 hours</option>
-          <option value="+6 hours">+6 hours</option>
-          <option value="+4~5 hours">+4~5 hours</option>
-          <option value="I need Sleep! 😪">I need Sleep! 😪</option>
+          <option value="8">+8 hours</option>
+          <option value="7">+7 hours</option>
+          <option value="6">+6 hours</option>
+          <option value="4.5">+4~5 hours</option>
+          <option value="3">I need Sleep! 😪</option>
         </select>
 
         <label>Hydration:</label>
@@ -129,10 +129,10 @@ function EditCheckin() {
           onChange={(e) => setWater(e.target.value)}
         >
           <option value="">Choose Hydration Amount</option>
-          <option value="+3l 💧💧💧">+3l 💧💧💧</option>
-          <option value="+2l 💧💧">+2l 💧💧</option>
-          <option value="+1l 💧">+1l 💧</option>
-          <option value="+0.5l 💦">+0.5l 💦</option>
+          <option value="3">+3l 💧💧💧</option>
+          <option value="2">+2l 💧💧</option>
+          <option value="1">+1l 💧</option>
+          <option value="0.5">+0.5l 💦</option>
         </select>
 
         <label>Note:</label>
@@ -184,12 +184,12 @@ function EditCheckin() {
           onChange={(e) => setSportDuration(e.target.value)}
         >
           <option value="">Select Sport Duration</option>
-          <option value="+3 hours">+3 hours</option>
-          <option value="+2 hours">+2 hours</option>
-          <option value="+1 hour">+1 hours</option>
-          <option value="+30 minutes">+30 minutes</option>
-          <option value="+20 minutes">+20 minutes</option>
-          <option value="10 minutes!😎">10 minutes!😎</option>
+          <option value="3">+3 hours</option>
+          <option value="2">+2 hours</option>
+          <option value="1">+1 hours</option>
+          <option value="0.5">+30 minutes</option>
+          <option value="0.25">+20 minutes</option>
+          <option value="0.1">10 minutes!😎</option>
         </select>
 
         <label>Sport Description:</label>

@@ -7,6 +7,7 @@ import ActivityDetails from "./components/ActivityDetails";
 import Music from "./components/Music";
 import Video from "./components/Video";
 import Challenge from "./pages/Challenge";
+import Chart from "./pages/Chart";
 
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
@@ -21,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-
+<Chart/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
