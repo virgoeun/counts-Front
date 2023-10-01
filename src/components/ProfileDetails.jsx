@@ -29,7 +29,7 @@ function ProfileDetails({ user }) {
     useEffect(() => {
       getProfile();
     }, []);
-    console.log("Profile", profile);
+    console.log("Profile ", profile);
 
   return (
     <div key="profile-card" className="Profile-card">
@@ -45,10 +45,17 @@ function ProfileDetails({ user }) {
 {/*  */}
 
       <button>
-        <Link to="/inspiration">Go to Inspiration Page</Link>
+        <Link to="/music">Go with Counts Music Flow 🎵 </Link>
       </button>
       <button>
-        <Link to="/checkin">Check-in Daily Log</Link>
+        <Link to="/video">Check Count's Snack For You 🍿</Link>
+      </button>
+      <button>
+        <Link to="/checkin">Check-in Daily Log 📓</Link>
+      </button>
+
+      <button>
+        <Link to="/challenge">Unlock Today's Challenge!🔥</Link>
       </button>
 
     </div>

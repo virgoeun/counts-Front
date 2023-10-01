@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+
 import ProfileDetails from "../components/ProfileDetails";
 // import AddProject from "../components/AddProject";
 //import ProfileCard from "../components/ProfileCard";
