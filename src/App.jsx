@@ -3,17 +3,19 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
-import DailyApp from "./components/DailyApp";
-
-// import ProjectListPage from "./pages/ProjectListPage";
-// import ProjectDetailsPage from "./pages/ProjectDetailsPage";
-// import EditProjectPage from "./pages/EditProjectPage";
+import ActivityDetails from "./components/ActivityDetails";
+import Music from "./components/Music";
+import Video from "./components/Video";
+import Challenge from "./pages/Challenge";
 
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
-//import InspirationPage from "./pages/Inspo";
+import Checkin from "./pages/Checkin";
+import EditCheckin from "./pages/EditCheckin";
+
+
 
 function App() {
   return (
@@ -26,45 +28,60 @@ function App() {
           path="/profile"
           element={
             <IsPrivate>
-              
-              <DailyApp />
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <IsPrivate>
-              
               <ProfilePage />
             </IsPrivate>
           }
         />
 
-        {/*} <Route
-          path="/projects/:projectId"
-          element={ <IsPrivate> <ProjectDetailsPage /> </IsPrivate> }
-        /> */}
-
-        {/* <Route
-          path="/projects/edit/:projectId"
-          element={ <IsPrivate> <EditProjectPage /> </IsPrivate> } 
-        />
-         */}
-
-        {/* <Route
-          path="/inspiration"
+        <Route
+          path="/checkin"
           element={
             <IsPrivate>
-              <InspirationPage />
+              <Checkin />
             </IsPrivate>
           }
-        /> */}
+        />
+
+<Route
+          path="/challenge"
+          element={
+            <IsPrivate>
+              <Challenge />
+            </IsPrivate>
+          }
+        />
+
+        <Route path="/checkin/:activityId" element={<ActivityDetails />} />
+        <Route path="/checkin/:userId" element={<Checkin />} />
+        <Route
+          path="/checkin/edit/:activityId"
+          element={
+            <IsPrivate>
+              <EditCheckin />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/music"
+          element={
+            <IsPrivate>
+              <Music />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/video"
+          element={
+            <IsPrivate>
+              <Video />
+            </IsPrivate>
+          }
+        />
         <Route
           path="/signup"
           element={
             <IsAnon>
-              
               <SignupPage />
             </IsAnon>
           }
@@ -73,7 +90,6 @@ function App() {
           path="/login"
           element={
             <IsAnon>
-              
               <LoginPage />
             </IsAnon>
           }

@@ -82,7 +82,7 @@ const questions = [
     required: true
   },
   {
-    field: "Note",
+    field: "note",
     submitButtonText: "Submit",
     type: formTypes.text,
     question: `Please record any extra logs here!`,

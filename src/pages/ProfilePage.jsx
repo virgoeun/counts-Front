@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ProfileDetails from "../components/ProfileDetails";
 // import AddProject from "../components/AddProject";
-import ProfileCard from "../components/ProfileCard";
+//import ProfileCard from "../components/ProfileCard";
 import DailyApp from "../components/DailyApp";
 
 const API_URL = "http://localhost:5005";
@@ -12,6 +13,7 @@ function ProfilePage() {
   const getProfile = () => {
     // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
+    console.log("StoredToken", storedToken)
 
     // Send the token through the request "Authorization" Headers
     axios
@@ -27,16 +29,14 @@ function ProfilePage() {
   useEffect(() => {
     getProfile();
   }, []);
-  console.log(profile);
+  console.log("Profile", profile);
   return (
     <div className="Profile-details">
-      <div className="dailyLog-container">
-        <DailyApp  addFormData={getProfile}/>
-      </div>
-
+      <ProfileDetails user={profile}/>
+{/* 
       {profile.map((profile, index) => (
         <ProfileCard key={index} {...profile} />
-      ))}
+      ))} */}
     </div>
   );
 }
