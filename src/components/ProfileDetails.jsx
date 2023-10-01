@@ -40,7 +40,8 @@ function ProfileDetails({ user }) {
 
 <Checkin id={user._id} /> 
 
-<AddActivity refreshProject={getProfile} userId={user._id} />
+<AddActivity refreshProject={getProfile}  />
+{/* userId={user._id} */}
 {/*  */}
 
       <button>

@@ -22,7 +22,7 @@ function AddActivity(props) {
     e.preventDefault();
 
     const requestBody = {
-        userId:props.userId,
+        // userId:props.userId,
       date,
       sleep,
       water,
