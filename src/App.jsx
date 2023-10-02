@@ -8,6 +8,8 @@ import Music from "./components/Music";
 import Video from "./components/Video";
 import Challenge from "./pages/Challenge";
 import Chart from "./pages/Chart";
+import DailyApp from "./components/DailyApp";
+import GeocodeForm from "./components/GoogleApi/Geocoder";
 
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
@@ -15,25 +17,17 @@ import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 import Checkin from "./pages/Checkin";
 import EditCheckin from "./pages/EditCheckin";
-
+import PlaceDetails from "./components/GoogleApi/PlaceDetails";
 
 
 function App() {
   return (
     <div className="App">
+
       <Navbar />
-<Chart/>
+
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route
-          path="/profile"
-          element={
-            <IsPrivate>
-              <ProfilePage />
-            </IsPrivate>
-          }
-        />
-
         <Route
           path="/checkin"
           element={
@@ -44,6 +38,31 @@ function App() {
         />
 
 <Route
+          path="/geocode"
+          element={
+            <IsPrivate>
+              <GeocodeForm />
+            </IsPrivate>
+          }
+        />
+
+<Route
+          path="/challenge"
+          element={
+            <IsPrivate>
+              <Challenge />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <IsPrivate>
+              <ProfilePage />
+            </IsPrivate>
+          }
+        />
+        <Route
           path="/challenge"
           element={
             <IsPrivate>

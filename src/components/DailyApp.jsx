@@ -40,18 +40,18 @@ export default function DailyApp({ data }) {
   const [surveyOpen, setSurveyOpen] = useState(false);
   const [surveyResponse, setSurveyResponse] = useState({});
 
-  const sendProfileData = (data) => {
-    axios
-      .post(`${API_URL}/api/checkin`, data)
-      .then((response) => {
-        addFormData();
-        console.log("Profile data sent successfully:", response.data);
-      })
-      .catch((error) => {
-        // Handle errors here
-        console.error("Error sending profile data:", error);
-      });
-  };
+  // const sendProfileData = (data) => {
+  //   axios
+  //     .post(`${API_URL}/api/checkin`, data)
+  //     .then((response) => {
+  //       addFormData();
+  //       console.log("Profile data sent successfully:", response.data);
+  //     })
+  //     .catch((error) => {
+  //       // Handle errors here
+  //       console.error("Error sending profile data:", error);
+  //     });
+  // };
 
   return (
     <div className="App">

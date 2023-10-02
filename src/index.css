@@ -25,10 +25,10 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  /* display: flex; -> google map!*/
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+   min-width: 520px;
+  min-height: 100vh; 
 }
 
 h1 {

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Checkin from "../pages/Checkin";
 import AddActivity from "./addActivity";
+import Chart from "../pages/Chart";
 
 const API_URL = "http://localhost:5005";
 
@@ -37,8 +38,6 @@ function ProfileDetails({ user }) {
       <h2>Welcome, {user.userName}!</h2> {/* Display the user's name */}
       <p>Email: {user.email}</p> {/* Display the user's email */}
       {/* <img src={user.avatar} alt="User Avatar" /> */}
-
-<Checkin id={user._id} /> 
 
 <AddActivity refreshProject={getProfile}  />
 {/* userId={user._id} */}
