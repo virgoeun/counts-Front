@@ -5,8 +5,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const API_URL = "http://localhost:5005";        
+//props?
 
-function ActivityDetails (props) {
+function ActivityDetails () {
   const [activity, setactivity] = useState(null);
   // Get the URL parameter `:projectId` 
   const { activityId } = useParams();       

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
 import { faIcons } from "@fortawesome/free-solid-svg-icons";
@@ -118,34 +117,37 @@ function CreateBookmark({ refreshBookmarks }) {
 
       {/* <button onClick={getAllBookmarks}>Get All Your Saved Faves 😍</button> */}
       <button onClick={fetchAllBookmarks}>
-        {" "}
+       
         {showBookmarks
           ? "Hide Your Faves List 😍"
-          : "Get All Your Saved Faves 😍"}{" "}
+          : "Get All Your Saved Faves 😍"}
       </button>
       {/* Display the list of bookmarks */}
       {showBookmarks && bookmarkList.length > 0 && (
-        <div>
-          <h2>Your Saved Faves 😍</h2>
-          <ul>
-            {bookmarkList.map((bookmark) => (
-              <li key={bookmark._id}>
-           <FontAwesomeIcon icon={faIcons} /> <strong>Name:</strong>{" "}
-                {bookmark.name}, <strong>URI:</strong>{" "}
-                <a
-                  href={bookmark.uri}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {/* Add a button/link to open the URL */}
-                  <button style={{ backgroundColor: 'rgb(255,192,203)', color: 'white', border: 'solid', padding: '5px 10px', borderRadius: '15px' }}>Link to the Page</button>
-                </a>
-                <strong>Category:</strong> {bookmark.category}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+  <div>
+    <h2>Your Saved Faves 😍</h2>
+    <ul>
+      {bookmarkList.map((bookmark) => (
+        <li key={bookmark._id}>
+          <FontAwesomeIcon icon={faIcons} /> <strong>Name:</strong>{" "}
+          {bookmark.name} <strong>URI:</strong>{" "}
+          <a
+            href={bookmark.uri}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {/* Add a button/link to open the URL */}
+            <button style={{ backgroundColor: 'rgb(255,192,203)', color: 'white', border: 'solid', padding: '5px 10px', borderRadius: '15px' }}>Link to the Page</button>
+          </a>
+          <strong>Category:</strong> {bookmark.category}
+          <button onClick={() => navigate(`/bookmarks/edit/${bookmark._id}`)}>
+            Edit
+          </button>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
     </div>
   );
 }
