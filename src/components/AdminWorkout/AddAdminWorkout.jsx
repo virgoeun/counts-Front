@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import AdminWorkoutList from "./AdminWorkoutList";
 
 const API_URL = "http://localhost:5005";
 const storedToken = localStorage.getItem("authToken");
 
 function AddAmindWorkout({ refreshWorkouts }) {
   const navigate = useNavigate();
-  const [imageFile, setImageFile] = useState(null);
+  const [imageFile, setImageFile] = useState("null");
+  const [imageUrl, setImageUrl] = useState(""); 
+
+
   const [workoutData, setWorkoutData] = useState({
     workoutNumber: "",
     title: "",
@@ -111,6 +115,15 @@ function AddAmindWorkout({ refreshWorkouts }) {
           <button type="submit">Create Workout</button>
         </div>
       </form>
+
+       {/* Display the uploaded image */}
+       {imageUrl && (
+        <div>
+          <h3>Uploaded Image:</h3>
+          <img src={imageFile} alt="Uploaded Workout" width="300" />
+        </div>
+      )}
+      <AdminWorkoutList />
     </div>
   );
 }
