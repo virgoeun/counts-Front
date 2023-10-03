@@ -1,12 +1,12 @@
 import { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
+import { AuthContext } from "../../context/auth.context";
 
 const API_URL = "http://localhost:5005";
 //const API_URL = "https://counts-back.onrender.com"
 
-function LoginPage() {
+function AdminLoginPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -23,13 +23,13 @@ function LoginPage() {
     const requestBody = { email, password };
 
     axios
-      .post(`${API_URL}/auth/login`, requestBody)
+      .post(`${API_URL}/auth/admin/login`, requestBody)
       .then((response) => {
         console.log("JWT token", response.data.authToken);
 
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/profile");
+        navigate("/admin/profile");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -38,7 +38,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
+    <div className="loginPage">
       <h1>Login</h1>
 
       <form onSubmit={handleLoginSubmit}>
@@ -57,10 +57,10 @@ function LoginPage() {
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <p>Don't have an Admin account yet? 🥸</p>
+      <Link to={"/admin/signup"}> Admin Sign Up</Link>
     </div>
   );
 }
 
-export default LoginPage;
+export default AdminLoginPage;

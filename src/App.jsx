@@ -10,6 +10,7 @@ import Challenge from "./pages/Challenge";
 import Chart from "./pages/Chart";
 import DailyApp from "./components/DailyApp";
 import GeocodeForm from "./components/GoogleApi/Geocoder";
+import AdminIsAnon from "./components/AdminIsAnon";
 
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
@@ -23,6 +24,8 @@ import EditBookmark from "./components/Bookmarks/EditBookmark";
 import WorkoutPage from "./pages/WorkoutPage";
 import StylesPage from "./pages/StylesPage";
 import AdminWorkoutPage from "./pages/AdminWorkoutPage";
+import AdminSignupPage from "./pages/AdminAuth/AdminSignupPage";
+import AdminLoginPage from "./pages/AdminAuth/AdminLoginPage";
 
 
 function App() {
@@ -33,6 +36,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+      
         <Route
           path="/checkin"
           element={
@@ -112,7 +116,7 @@ function App() {
           }
         />
 
-        <Route path="/checkin/:activityId" element={<ActivityDetails />} />
+        <Route path="/checkin/:activityId" element={<IsPrivate><ActivityDetails /></IsPrivate>} />
         {/* <Route path="/checkin/:userId" element={<Checkin />} /> */}
         <Route
           path="/checkin/edit/:activityId"
@@ -148,6 +152,16 @@ function App() {
             </IsPrivate>
           }
         />
+         <Route path="/admin/signup" element={
+            <AdminIsAnon>
+              <AdminSignupPage />
+            </AdminIsAnon>
+          }/>
+          <Route path="/admin/login"  element={
+            <AdminIsAnon>
+              <AdminLoginPage />
+            </AdminIsAnon>
+          }/>
         <Route
           path="/signup"
           element={
@@ -156,6 +170,7 @@ function App() {
             </IsAnon>
           }
         />
+         
         <Route
           path="/login"
           element={
