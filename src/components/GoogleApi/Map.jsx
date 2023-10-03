@@ -37,17 +37,18 @@ function Map() {
         position: PlaceToFind,
         icon: customMarker,
         map: mapInstance,
-        title: "I'm here"
+        title: "Here"
       });
       setMarker(markerInstance);
 
       const infoContentDiv = document.createElement("div");
 
       const infoContent = `
-      <div style="background-color: pink; padding-top: 3px; padding-bottom:10px; padding-right:7px; padding-left: 7px;margin-bottom:2px;">
-    <h4 style="font-size: 20px; color:green;">Little Green Rabbit</h4>
-    <p style="font-size: 16px; color:green;"> 🍒 + 🥗 + 🥤+ 💖 = 🥰</p>
-    <p style="font-size: 13px;">
+      <div className="info-content-container" style="background-color: pink; padding-top: 3px; padding-bottom:5px; padding-right:7px; padding-left: 7px;margin-bottom:3px;">
+    
+      <h4 style="font-size: 19px; color:green;">Little Green Rabbit</h4>
+    <p style="font-size: 14px; color:green;"> 🍒 + 🥗 + 🥤+ 💖 = 🥰</p>
+    <p style="font-size: 11px;">
       <a href="https://www.instagram.com/littlegreenrabbitberlin/?hl=en" target="_blank" rel="noopener noreferrer" style="color:grey; text-decoration: underline;">
         Visit Instagram
       </a>
@@ -69,7 +70,7 @@ function Map() {
       setInfoWindow(infoWindowInstance);
 
       // Open the info window immediately
-      infoWindowInstance.open(mapInstance, markerInstance);
+     // infoWindowInstance.open(mapInstance, markerInstance);
 
       // Function to close the info window
       function closeInfoWindow() {

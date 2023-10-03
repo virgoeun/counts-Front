@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import ProfileDetails from "../components/ProfileDetails";
-import Popup from "../components/Popup/Popup";
+
+import ChallengePopup from "../components/Challenge/ChallengePopup";
 import PlaceDetails from "../components/GoogleApi/PlaceDetails";
 import Map from "../components/GoogleApi/Map";
 
@@ -14,6 +12,7 @@ function Challenge() {
     <div className="google-map-container">
       <PlaceDetails />
       <Map/>
+      <ChallengePopup/>
     </div>
   );x
 }

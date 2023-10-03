@@ -24,7 +24,7 @@ function ActivityDetails () {
       .then((response) => {
         const oneActivity = response.data;
         setactivity(oneActivity);
-        
+        console.log("One activity", oneActivity)
       })
       .catch((error) => console.log(error));
   };
@@ -40,7 +40,7 @@ function ActivityDetails () {
       {activity && (
         
          
-          <li className="Sports card">
+          <li className="Activity-card">
               <h4>Date:</h4>
              <h3>{activity.date}</h3>
              <h4>Stress Level:</h4>

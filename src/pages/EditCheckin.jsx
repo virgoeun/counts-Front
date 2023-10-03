@@ -40,6 +40,8 @@ function EditCheckin() {
       .catch((error) => console.log(error));
   }, [activityId]);
 
+
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const requestBody = {

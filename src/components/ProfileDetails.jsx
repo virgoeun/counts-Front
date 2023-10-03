@@ -52,7 +52,9 @@ function ProfileDetails({ user }) {
       <button>
         <Link to="/checkin">Check-in Daily Log 📓</Link>
       </button>
-
+      <button>
+        <Link to="/challenge">Check This Week's Challenge 🔥 </Link>
+      </button>
       <button>
         <Link to="/bookmarks">Check your Faves 💖</Link>
       </button>

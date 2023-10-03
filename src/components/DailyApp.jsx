@@ -65,7 +65,7 @@ export default function DailyApp({ data }) {
       
           <Link to="/profile">
            
-             <button>Check All My Logs </button> 
+             <button>Back to Profile 🔙 </button> 
           </Link>
      
       </ActivatorContainer>

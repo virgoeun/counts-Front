@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ProfileDetails from "../components/ProfileDetails";
-import Popup from "../components/Popup/Popup";
+import Popup from "../components/ProfilePopup/Popup";
 // import AddProject from "../components/AddProject";
 //import ProfileCard from "../components/ProfileCard";
 import DailyApp from "../components/DailyApp";

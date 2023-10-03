@@ -1,4 +1,4 @@
-//import ReactPlayer from "react-player";
+import ReactPlayer from "react-player";
 import {Cloudinary} from "@cloudinary/url-gen";
 import React, { useState, useEffect } from "react";
 import {AdvancedVideo} from '@cloudinary/react';
@@ -8,52 +8,55 @@ import {FocusOn} from "@cloudinary/url-gen/qualifiers/focusOn";
 import {Gravity} from "@cloudinary/url-gen/qualifiers";
 import {AutoFocus} from "@cloudinary/url-gen/qualifiers/autoFocus";
 
-const Videos = () => {
+// const Videos = () => {
 
-    const cld = new Cloudinary({
-        cloud: {
-          cloudName: 'dgslm0j3k'
-        }
-      }); 
+//     const cld = new Cloudinary({
+//         cloud: {
+//           cloudName: 'dgslm0j3k'
+//         }
+//       }); 
     
-      // Use the video with public ID, 'docs/walking_talking'.
-      const myVideo1 = cld.video('docs/models');
-      const myVideo2 = cld.video('docs/mindful');
-      const myVideo3 = cld.video('docs/yoga');
-      const myVideo4 = cld.video('docs/stress');
+//       // Use the video with public ID, 'docs/walking_talking'.
+//       const myVideo1 = cld.video('docs/models');
+//       const myVideo2 = cld.video('docs/mindful');
+//       const myVideo3 = cld.video('docs/yoga');
+//       const myVideo4 = cld.video('docs/stress');
 
-    // const videos = [
-    //     cld.video('docs/models'),
-    //     cld.video('docs/mindful'),
-    //     cld.video('docs/yoga'),
-    //     cld.video('docs/stress')
-    //   ];
+//     // const videos = [
+//     //     cld.video('docs/models'),
+//     //     cld.video('docs/mindful'),
+//     //     cld.video('docs/yoga'),
+//     //     cld.video('docs/stress')
+//     //   ];
 
-      // Apply the transformation.
+//       // Apply the transformation.
 
-    //   videos.forEach((video) => {
-    //     video
-    //       .resize(fill().width(1080).height(720).gravity(Gravity.autoGravity().autoFocus(AutoFocus.focusOn(FocusOn.faces()))))
-    //       .roundCorners(byRadius(20));
-    //   });
+//     //   videos.forEach((video) => {
+//     //     video
+//     //       .resize(fill().width(1080).height(720).gravity(Gravity.autoGravity().autoFocus(AutoFocus.focusOn(FocusOn.faces()))))
+//     //       .roundCorners(byRadius(20));
+//     //   });
 
-    //   const randomIndex = Math.floor(Math.random() * videos.length);
-    //   const selectedVideo = videos[randomIndex];
+//     //   const randomIndex = Math.floor(Math.random() * videos.length);
+//     //   const selectedVideo = videos[randomIndex];
 
-    myVideo3.resize(fill().width(650).height(400)
-      .gravity(Gravity.autoGravity().autoFocus(AutoFocus.focusOn(FocusOn.faces())))) // Crop the video, focusing on the faces.
-      .roundCorners(byRadius(20))  // Round the corners.
+//     myVideo3.resize(fill().width(650).height(400)
+//       .gravity(Gravity.autoGravity().autoFocus(AutoFocus.focusOn(FocusOn.faces())))) // Crop the video, focusing on the faces.
+//       .roundCorners(byRadius(20))  // Round the corners.
    
     
-      // Render the transformed video in a React component.
-      return (
-        <div>
-            <h3>Today's Count Snack for you ❤️ </h3>
-          <AdvancedVideo cldVid={myVideo3} controls />
-        </div>
-      )
-    };
-export default Videos;
+//       // Render the transformed video in a React component.
+//       return (
+//         <div>
+//             <h3>Today's Count Snack for you ❤️ </h3>
+//           <AdvancedVideo cldVid={myVideo3} controls />
+//         </div>
+//       )
+//     };
+// export default Videos;
+
+
+
 
 //   const videoRef = useRef();
 //   const cloudinaryRef = useRef();
@@ -88,47 +91,62 @@ export default Videos;
 
 
 
+//REACT PLAYER VERsion
+
+function Video() {
+  const[selectedVideoUrl, setSelectedVideoUrl] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoUrls = [
+
+"https://www.youtube.com/watch?v=kT9CULSckzw",
+    "https://www.youtube.com/watch?v=J3JP5YK14nU",
+    "https://www.youtube.com/watch?v=s-7lyvblFNI",
+"https://www.youtube.com/watch?v=-0RiuuwSXFw",
+     "https://www.youtube.com/watch?v=C2HX2pNbUCM",
+     "https://www.youtube.com/watch?v=UxU8OCsNbYY",
+"https://www.youtube.com/watch?v=5PHZ6Qnc-CQ",
+"https://www.youtube.com/watch?v=QtE00VP4W3Y",
+     "https://www.youtube.com/watch?v=ufp0rtfAmS0",
+"https://www.youtube.com/watch?v=lhtaAFG2FDI",
+"https://www.youtube.com/watch?v=Vr3h5X9kmUo",
+"https://www.youtube.com/watch?v=YKtDkKUHtPU",
 
 
-// function Video() {
-//   const[selectedVideoUrl, setSelectedVideoUrl] = useState(null);
-//   const [isPlaying, setIsPlaying] = useState(false);
-//   const videoUrls = [
-//     "https://www.youtube.com/watch?v=jwWpTAXu-Sg&list=PLLQHhQnYADNkQ2FYEYBMSl-g3T0xLeas8&index=5",
-//     "https://www.youtube.com/watch?v=ssss7V1_eyA&list=PLLQHhQnYADNkQ2FYEYBMSl-g3T0xLeas8",
-//      "https://www.youtube.com/watch?v=zdz8c9a-rDo&list=PLLQHhQnYADNkQ2FYEYBMSl-g3T0xLeas8&index=2",
-//      "https://www.youtube.com/watch?v=anWff1mZ2tY&list=PLLQHhQnYADNkQ2FYEYBMSl-g3T0xLeas8&index=3",
-//      "https://www.youtube.com/watch?v=0g1uOi8K0mI&list=PLLQHhQnYADNkQ2FYEYBMSl-g3T0xLeas8&index=4"
-//   ];
+    //  "https://www.youtube.com/watch?v=ssss7V1_eyA",
+    //  "https://www.youtube.com/watch?v=6Pm0Mn0-jYU&t=5s",
+    //  "https://www.youtube.com/watch?v=w6T02g5hnT4&t=12s",
+    //  "https://www.youtube.com/watch?v=o-kMJBWk9E0",
+    //"https://www.youtube.com/watch?v=0g1uOi8K0mI&t=1s",
+  ];
 
-//   const selectRandomVideo = () => {
-//     const randomIndex = Math.floor(Math.random() * videoUrls.length);
-//     setSelectedVideoUrl(videoUrls[randomIndex]);
-//   };
+  const selectRandomVideo = () => {
+    const randomIndex = Math.floor(Math.random() * videoUrls.length);
+    setSelectedVideoUrl(videoUrls[randomIndex]);
+  };
 
-//   useEffect(() => {
-//     selectRandomVideo();
-//   }, []);
+  useEffect(() => {
+    selectRandomVideo();
+  }, []);
 
-//   return (
-//     <div className="container">
-//       <h2>Random Video</h2>
+  return (
+    <div className="container">
+      <h2>Random Video</h2>
 
-//       {/* Render the ReactPlayer component with the selected video URL */}
-//       {selectedVideoUrl && (
-//         <ReactPlayer url={selectedVideoUrl} playing={isPlaying} controls volume={0.5} />
-//       )}
+      {/* Render the ReactPlayer component with the selected video URL */}
+      {selectedVideoUrl && (
+        <ReactPlayer url={selectedVideoUrl} playing={isPlaying} controls volume={0.5} />
+      )}
 
-//       {/* Button to select a new random video */}
-//       <button onClick={selectRandomVideo}>Change Video</button>
-//       <button onClick={() => setIsPlaying(!isPlaying)}>
-//         {isPlaying ? 'Pause' : 'Play'}
-//       </button>
-//     </div>
-//   );
-// }
+      {/* Button to select a new random video */}
+      <button onClick={selectRandomVideo}>Change Video</button>
+      <button onClick={() => setIsPlaying(!isPlaying)}>
+        {isPlaying ? 'Pause' : 'Play'}
+      </button>
+    </div>
+  );
+}
 
-// export default Video;
+export default Video;
 
 // import React, { useEffect, useState } from "react";
 // import axios from "axios";

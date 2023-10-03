@@ -7,9 +7,11 @@ function PopupFunction(props) {
     <div className="popup-outer">
       <div className="popup-inner">
         {props.children}
+        <Link to="/profile">
         <button className="close-btn" onClick={() => props.setTrigger(false)}>
           Back to Profile
         </button>
+        </Link>
         <Link to="/challenge">
           <button className="close-btn" onClick={() => props.setTrigger(false)}>
             Unlock Challenge!
