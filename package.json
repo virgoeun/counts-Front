@@ -17,6 +17,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@googlemaps/js-api-loader": "^1.16.2",
     "@mui/x-date-pickers": "^6.16.0",
+    "@qiuz/react-image-map": "^1.1.8",
     "axios": "^1.5.1",
     "chart.js": "^4.4.0",
     "chartjs": "^0.3.24",

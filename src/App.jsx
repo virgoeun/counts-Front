@@ -20,6 +20,7 @@ import EditCheckin from "./pages/EditCheckin";
 import PlaceDetails from "./components/GoogleApi/PlaceDetails";
 import Favorite from "./pages/Favorite";
 import EditBookmark from "./components/Bookmarks/EditBookmark";
+import WorkoutPage from "./pages/WorkoutPage";
 
 
 function App() {
@@ -44,6 +45,15 @@ function App() {
           element={
             <IsPrivate>
               <Favorite />
+            </IsPrivate>
+          }
+        />
+
+<Route
+          path="/workout"
+          element={
+            <IsPrivate>
+              <WorkoutPage />
             </IsPrivate>
           }
         />
