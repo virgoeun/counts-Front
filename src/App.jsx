@@ -21,6 +21,8 @@ import PlaceDetails from "./components/GoogleApi/PlaceDetails";
 import Favorite from "./pages/Favorite";
 import EditBookmark from "./components/Bookmarks/EditBookmark";
 import WorkoutPage from "./pages/WorkoutPage";
+import StylesPage from "./pages/StylesPage";
+import AdminWorkoutPage from "./pages/AdminWorkoutPage";
 
 
 function App() {
@@ -45,6 +47,24 @@ function App() {
           element={
             <IsPrivate>
               <Favorite />
+            </IsPrivate>
+          }
+        />
+
+<Route
+          path="/style"
+          element={
+            <IsPrivate>
+              <StylesPage />
+            </IsPrivate>
+          }
+        />
+
+<Route
+          path="/admin-workout"
+          element={
+            <IsPrivate>
+              <AdminWorkoutPage />
             </IsPrivate>
           }
         />
