@@ -18,6 +18,8 @@ import IsAnon from "./components/IsAnon";
 import Checkin from "./pages/Checkin";
 import EditCheckin from "./pages/EditCheckin";
 import PlaceDetails from "./components/GoogleApi/PlaceDetails";
+import Favorite from "./pages/Favorite";
+import EditBookmark from "./components/Bookmarks/EditBookmark";
 
 
 function App() {
@@ -33,6 +35,15 @@ function App() {
           element={
             <IsPrivate>
               <Checkin />
+            </IsPrivate>
+          }
+        />
+
+<Route
+          path="/bookmarks"
+          element={
+            <IsPrivate>
+              <Favorite />
             </IsPrivate>
           }
         />
@@ -72,12 +83,21 @@ function App() {
         />
 
         <Route path="/checkin/:activityId" element={<ActivityDetails />} />
-        <Route path="/checkin/:userId" element={<Checkin />} />
+        {/* <Route path="/checkin/:userId" element={<Checkin />} /> */}
         <Route
           path="/checkin/edit/:activityId"
           element={
             <IsPrivate>
               <EditCheckin />
+            </IsPrivate>
+          }
+        />
+
+<Route
+          path="/bookmarks/edit/:bookmarkId"
+          element={
+            <IsPrivate>
+              <EditBookmark />
             </IsPrivate>
           }
         />

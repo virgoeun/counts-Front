@@ -35,7 +35,7 @@ function ProfileDetails({ user }) {
   return (
     <div key="profile-card" className="Profile-card">
      
-      <h2>Welcome, {user.userName}!</h2> {/* Display the user's name */}
+      <h2>Hello 👋 {user.userName}!</h2> {/* Display the user's name */}
       <p>Email: {user.email}</p> {/* Display the user's email */}
       {/* <img src={user.avatar} alt="User Avatar" /> */}
 
@@ -54,9 +54,10 @@ function ProfileDetails({ user }) {
       </button>
 
       <button>
-        <Link to="/challenge">Unlock Today's Challenge!🔥</Link>
+        <Link to="/bookmarks">Check your Faves 💖</Link>
       </button>
 
+      
     </div>
   );
 }

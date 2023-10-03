@@ -70,15 +70,11 @@ function EditCheckin() {
   };
 
   const deleteActivity = () => {
-    //  <== ADD
-    // Make a DELETE request to delete the project
     axios
       .delete(`${API_URL}/api/checkin/${activityId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
-        // Once the delete request is resolved successfully
-        // navigate back to the list of projects.
         navigate("/checkin");
       })
       .catch((err) => console.log(err));
