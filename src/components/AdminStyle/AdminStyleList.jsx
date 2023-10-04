@@ -61,8 +61,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import LikeStyleButton from "../Style/LikeStyleButton";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+
 
 const API_URL = "http://localhost:5005";
 
@@ -73,7 +75,7 @@ const AdminStyleList = () => {
 
   const storedToken = localStorage.getItem("authToken");
 
-  
+
   useEffect(() => {
     axios
       .get(`${API_URL}/api/admin-style`, {
@@ -109,6 +111,7 @@ const AdminStyleList = () => {
       [styleId]: !prevVisibility[styleId],
     }));
   };
+
 
   return (
     <div>

@@ -27,9 +27,9 @@ function AdminSignupPage() {
     // If POST request is successful redirect to login page
     // If the request resolves with an error, set the error message in the state
     axios
-      .post(`${API_URL}/auth/admin/signup`, requestBody)
+      .post(`${API_URL}/auth/admin-signup`, requestBody)
       .then((response) => {
-        navigate("/admin/profile");
+        navigate("/admin-profile");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -43,7 +43,7 @@ function AdminSignupPage() {
 
       <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <input type="email" name="email" value={email} onChange={handleEmail} placeholder="must contain 'admin"/>
 
         <label>Password:</label>
         <input
@@ -64,7 +64,7 @@ function AdminSignupPage() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Already have an Admin account? 🥸</p>
-      <Link to={"/admin/login"}> Admin Login</Link>
+      <Link to={"/admin-login"}> Admin Login</Link>
     </div>
   );
 }

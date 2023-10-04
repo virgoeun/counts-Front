@@ -23,13 +23,13 @@ function AdminLoginPage(props) {
     const requestBody = { email, password };
 
     axios
-      .post(`${API_URL}/auth/admin/login`, requestBody)
+      .post(`${API_URL}/auth/admin-login`, requestBody)
       .then((response) => {
         console.log("JWT token", response.data.authToken);
 
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/admin/profile");
+        navigate("/admin-profile");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -58,7 +58,9 @@ function AdminLoginPage(props) {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an Admin account yet? 🥸</p>
-      <Link to={"/admin/signup"}> Admin Sign Up</Link>
+      <Link to={"/admin-signup"}> Admin Sign Up</Link>
+      <p>Are you Counts family? 🥰 </p>
+      <Link to={"/"}>Counts Home</Link>
     </div>
   );
 }

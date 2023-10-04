@@ -28,16 +28,33 @@ import AdminSignupPage from "./pages/AdminAuth/AdminSignupPage";
 import AdminLoginPage from "./pages/AdminAuth/AdminLoginPage";
 import AdminProfilePage from "./pages/AdminProfilePage";
 import AdminStylePage from "./pages/AdminsStylePage";
+import AdminIsPrivate from "./components/AdminIsPrivate";
 
 function App() {
   return (
     <div className="App">
-
-      <Navbar />
-
+      <div className="admin-routes"></div>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<HomePage />} />
-      
+    
+        <Route
+          path="/signup"
+          element={
+            <IsAnon>
+              <SignupPage />
+            </IsAnon>
+          }
+        />
+
+        <Route
+          path="/login"
+          element={
+            <IsAnon>
+              <LoginPage />
+            </IsAnon>
+          }
+        />
         <Route
           path="/checkin"
           element={
@@ -47,7 +64,7 @@ function App() {
           }
         />
 
-<Route
+        <Route
           path="/bookmarks"
           element={
             <IsPrivate>
@@ -56,7 +73,7 @@ function App() {
           }
         />
 
-<Route
+        <Route
           path="/style"
           element={
             <IsPrivate>
@@ -65,34 +82,7 @@ function App() {
           }
         />
 
-<Route
-          path="/admin-workout"
-          element={
-            <IsPrivate>
-              <AdminWorkoutPage />
-            </IsPrivate>
-          }
-        />
-
-<Route
-          path="/admin-style"
-          element={
-            <IsPrivate>
-              <AdminStylePage />
-            </IsPrivate>
-          }
-        />
-
-<Route
-          path="/admin-profile"
-          element={
-            <IsPrivate>
-              <AdminProfilePage />
-            </IsPrivate>
-          }
-        />
-
-<Route
+        <Route
           path="/workout"
           element={
             <IsPrivate>
@@ -101,16 +91,16 @@ function App() {
           }
         />
 
-<Route
+        <Route
           path="/geocode"
           element={
-            <IsPrivate>
+            <AdminIsPrivate>
               <GeocodeForm />
-            </IsPrivate>
+            </AdminIsPrivate>
           }
         />
 
-<Route
+        <Route
           path="/challenge"
           element={
             <IsPrivate>
@@ -135,7 +125,14 @@ function App() {
           }
         />
 
-        <Route path="/checkin/:activityId" element={<IsPrivate><ActivityDetails /></IsPrivate>} />
+        <Route
+          path="/checkin/:activityId"
+          element={
+            <IsPrivate>
+              <ActivityDetails />
+            </IsPrivate>
+          }
+        />
         {/* <Route path="/checkin/:userId" element={<Checkin />} /> */}
         <Route
           path="/checkin/edit/:activityId"
@@ -146,7 +143,7 @@ function App() {
           }
         />
 
-<Route
+        <Route
           path="/bookmarks/edit/:bookmarkId"
           element={
             <IsPrivate>
@@ -171,31 +168,47 @@ function App() {
             </IsPrivate>
           }
         />
-         <Route path="/admin/signup" element={
+        <Route
+          path="/admin-signup"
+          element={
             <AdminIsAnon>
               <AdminSignupPage />
             </AdminIsAnon>
-          }/>
-          <Route path="/admin/login"  element={
+          }
+        />
+        <Route
+          path="/admin-login"
+          element={
             <AdminIsAnon>
               <AdminLoginPage />
             </AdminIsAnon>
-          }/>
-        <Route
-          path="/signup"
-          element={
-            <IsAnon>
-              <SignupPage />
-            </IsAnon>
           }
         />
-         
+
         <Route
-          path="/login"
+          path="/admin-workout"
           element={
-            <IsAnon>
-              <LoginPage />
-            </IsAnon>
+            <AdminIsPrivate>
+              <AdminWorkoutPage />
+            </AdminIsPrivate>
+          }
+        />
+
+        <Route
+          path="/admin-style"
+          element={
+            <AdminIsPrivate>
+              <AdminStylePage />
+            </AdminIsPrivate>
+          }
+        />
+
+        <Route
+          path="/admin-profile"
+          element={
+            <AdminIsPrivate>
+              <AdminProfilePage />
+            </AdminIsPrivate>
           }
         />
       </Routes>
