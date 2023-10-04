@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ProfileDetails from "../components/ProfileDetails";
 import Popup from "../components/ProfilePopup/Popup";
+import GetLikedWorkouts from "../components/UserWorkout/GetLikedWorkouts";
+import GetLikedStyles from "../components/Style/GetLikedStyles";
 
 const API_URL = "http://localhost:5005";
 
@@ -31,8 +33,10 @@ function ProfilePage() {
   return (
     <div className="Profile-details">
       <ProfileDetails user={profile} />
-
+      <GetLikedWorkouts />
+      <GetLikedStyles/>
       <Popup />
+
       {/* 
       {profile.map((profile, index) => (
         <ProfileCard key={index} {...profile} />

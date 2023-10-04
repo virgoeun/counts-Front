@@ -67,6 +67,7 @@ function LikeWorkoutButton({ workoutId, onUpdateLikeCount}) {
         // Toggle the liked state after successful request
         setLiked(!liked);
         onUpdateLikeCount(workoutId, !liked);
+        fetchLikeStatus();//make sure the state change->rerender
       })
       .catch((error) => {
         console.error("Error liking/unliking workout:", error);

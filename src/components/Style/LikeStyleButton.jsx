@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 function LikeStyleButton({ styleId, onUpdateLikeCount}) {
   const [liked, setLiked] = useState(false);
   const storedToken = localStorage.getItem("authToken");
@@ -54,6 +55,7 @@ function LikeStyleButton({ styleId, onUpdateLikeCount}) {
         // Toggle the liked state after successful request
         setLiked(!liked);
         onUpdateLikeCount(styleId, !liked);
+        fetchLikeStatus();
       })
       .catch((error) => {
         console.error("Error liking/unliking style:", error);
@@ -63,7 +65,7 @@ function LikeStyleButton({ styleId, onUpdateLikeCount}) {
   return (
     <div>
        <button onClick={handleLikeClick}>
-        {liked ? "❤️" : "🤍"} Workout
+        {liked ? "❤️" : "🤍"} FAV
       </button>
     </div>
   );
