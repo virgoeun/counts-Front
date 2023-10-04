@@ -4,6 +4,7 @@ import axios from "axios";
 import Checkin from "../pages/Checkin";
 import AddActivity from "./addActivity";
 import Chart from "../pages/Chart";
+import Video from "./Video";
 
 const API_URL = "http://localhost:5005";
 
@@ -42,7 +43,7 @@ function ProfileDetails({ user }) {
 <AddActivity refreshProject={getProfile}  />
 {/* userId={user._id} */}
 {/*  */}
-
+<Video/>
       <button>
         <Link to="/music">Go with Counts Music Flow 🎵 </Link>
       </button>
