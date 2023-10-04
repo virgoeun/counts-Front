@@ -7,7 +7,7 @@ function WorkoutPage() {
   
   return (
     <div className="workoutpage">
-    
+     
 <AdminWorkoutList/>
     
     </div>

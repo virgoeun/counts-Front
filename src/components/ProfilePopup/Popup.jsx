@@ -25,7 +25,7 @@ export default function Popup() {
         </PopupFunction> */}
 
         <PopupFunction trigger={timedPopup} setTrigger={setTimedPopup}>
-          <h3>My Second Popup</h3>
+          <h3>My Second try Popup</h3>
           <p>This is my Timed popup!</p>
         </PopupFunction>
       </main>

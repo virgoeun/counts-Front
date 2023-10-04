@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import "../index.css";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { ActionButton } from "../components/DailyActivity/FormButton";
@@ -36,51 +35,95 @@ import { companyName } from "../static/questions";
 const ActivatorContainer = styled.div``;
 const API_URL = "http://localhost:5005";
 
+// export default function DailyApp({ data }) {
+//   const [surveyOpen, setSurveyOpen] = useState(false);
+//   const [surveyResponse, setSurveyResponse] = useState({});
+
+
+//   return (
+//     <div className="App">
+//       <ActivatorContainer>
+//         <h3>
+//           {surveyResponse.completed && `Remember, every moves COUNTS! 😉`}
+//         </h3>
+//         <ActionButton onClick={() => setSurveyOpen(!surveyOpen)}>
+//           <h2>Feedback</h2> 
+//           <p>Your feedback is important for us💖</p>
+//         </ActionButton>
+      
+//           <Link to="/profile">
+           
+//              <button>Back to Profile 🔙 </button> 
+//           </Link>
+     
+//       </ActivatorContainer>
+//       <Survey
+//         onClose={() => setSurveyOpen(false)}
+//         onSubmit={(data) => {
+//           setSurveyResponse(data);
+
+//           if (data.completed) {
+//             sendProfileData(data);
+//           }
+//         }}
+//         open={surveyOpen}
+//         title={companyName}
+//       />
+//       {surveyResponse.completed && (
+//         <ul>
+//           {Object.keys(surveyResponse).map(
+//             (key) =>
+//               surveyResponse[key] && (
+//                 <li key={key}>
+//                   {key}: {surveyResponse[key].toString()}
+//                 </li>
+//               )
+//           )}
+//         </ul>
+//       )}
+//       <Link to="/">
+//         <button>Back to Homepage</button>
+//       </Link>
+//     </div>
+//   );
+// }
+
+
+// ... (previous imports and styled components)
+
 export default function DailyApp({ data }) {
   const [surveyOpen, setSurveyOpen] = useState(false);
   const [surveyResponse, setSurveyResponse] = useState({});
 
-  // const sendProfileData = (data) => {
-  //   axios
-  //     .post(`${API_URL}/api/checkin`, data)
-  //     .then((response) => {
-  //       addFormData();
-  //       console.log("Profile data sent successfully:", response.data);
-  //     })
-  //     .catch((error) => {
-  //       // Handle errors here
-  //       console.error("Error sending profile data:", error);
-  //     });
-  // };
-
   return (
     <div className="App">
       <ActivatorContainer>
-        <h3>
-          {surveyResponse.completed && `Remember, every moves COUNTS! 😉`}
-        </h3>
-        <ActionButton onClick={() => setSurveyOpen(!surveyOpen)}>
-          Track My Log
+        <h3>{surveyResponse.completed && `Remember, every move COUNTS! 😉`}</h3>
+        <ActionButton onClick={() => setSurveyOpen(prevState => !prevState)}>
+          <h2>Feedback</h2>
+          <p>Your feedback is important for us💖</p>
         </ActionButton>
-      
-          <Link to="/profile">
-           
-             <button>Back to Profile 🔙 </button> 
-          </Link>
-     
-      </ActivatorContainer>
-      <Survey
-        onClose={() => setSurveyOpen(false)}
-        onSubmit={(data) => {
-          setSurveyResponse(data);
 
-          if (data.completed) {
-            sendProfileData(data);
-          }
-        }}
-        open={surveyOpen}
-        title={companyName}
-      />
+        <Link to="/profile">
+          <button>Back to Profile 🔙</button>
+        </Link>
+      </ActivatorContainer>
+
+      {surveyOpen && ( // Check if surveyOpen is true
+        <Survey
+          onClose={() => setSurveyOpen(false)}
+          onSubmit={(data) => {
+            setSurveyResponse(data);
+
+            if (data.completed) {
+              sendProfileData(data);
+            }
+          }}
+          open={surveyOpen}
+          title={companyName}
+        />
+      )}
+
       {surveyResponse.completed && (
         <ul>
           {Object.keys(surveyResponse).map(
@@ -93,8 +136,9 @@ export default function DailyApp({ data }) {
           )}
         </ul>
       )}
-      <Link to="/">
-        <button>Back to Homepage</button>
+
+      <Link to="/profile">
+        <button>Back to Profile</button>
       </Link>
     </div>
   );

@@ -4,7 +4,7 @@ import ProfileDetails from "../components/ProfileDetails";
 import Popup from "../components/ProfilePopup/Popup";
 import GetLikedWorkouts from "../components/UserWorkout/GetLikedWorkouts";
 import GetLikedStyles from "../components/Style/GetLikedStyles";
-
+import DailyApp from "../components/DailyApp";
 const API_URL = "http://localhost:5005";
 
 function ProfilePage() {
@@ -32,11 +32,14 @@ function ProfilePage() {
   console.log("Profile", profile); //
   return (
     <div className="Profile-details">
+     <DailyApp/>
       <ProfileDetails user={profile} />
+    
       <GetLikedWorkouts />
       <GetLikedStyles/>
+    
       <Popup />
-
+    
       {/* 
       {profile.map((profile, index) => (
         <ProfileCard key={index} {...profile} />

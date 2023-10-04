@@ -5,6 +5,7 @@ import Checkin from "../pages/Checkin";
 import AddActivity from "./addActivity";
 import Chart from "../pages/Chart";
 import Video from "./Video";
+import DailyApp from "../components/DailyApp"
 
 const API_URL = "http://localhost:5005";
 
@@ -59,7 +60,6 @@ function ProfileDetails({ user }) {
       <button>
         <Link to="/bookmarks">Check your Faves 💖</Link>
       </button>
-
       
     </div>
   );

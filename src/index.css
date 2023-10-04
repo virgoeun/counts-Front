@@ -156,3 +156,14 @@ button:focus-visible {
   align-items: center;
   /* Add any additional styling as needed */
 }
+
+/* Calendar */
+
+
+.highlighted-date {
+  background-color: #ff0000;
+  border-radius: 100%;
+  padding: 3px;
+}
+
+
