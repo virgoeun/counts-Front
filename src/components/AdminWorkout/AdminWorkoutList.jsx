@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import LikeWorkoutButton from "../UserWorkout/LikeWorkoutButton";
+import HeartButton from "../HeartButton";
 
 const API_URL = "http://localhost:5005";
 
@@ -43,12 +44,13 @@ function AdminWorkoutList() {
         {workouts.map((workout) => (
           <li key={workout._id}>
             <h3>{workout.title}</h3>
-            <LikeWorkoutButton workoutId={workout._id} onUpdateLikeCount={updateLikeCount} />
-            <span> Likes: {workout.likeCount}</span>
-            <p>Description: {workout.description}</p>
             {workout.imageUrl && (
               <img src={workout.imageUrl} alt={workout.title} width="300" />
             )}
+            <LikeWorkoutButton workoutId={workout._id} onUpdateLikeCount={updateLikeCount} />
+            <span> Likes: {workout.likeCount}</span>
+            <p>Description: {workout.description}</p>
+            
           </li>
         ))}
       </ul>

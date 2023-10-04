@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function LikeWorkoutButton({ workoutId, onUpdateLikeCount}) {
+function LikeStyleButton({ styleId, onUpdateLikeCount}) {
   const [liked, setLiked] = useState(false);
   const storedToken = localStorage.getItem("authToken");
 
@@ -10,11 +10,11 @@ function LikeWorkoutButton({ workoutId, onUpdateLikeCount}) {
   useEffect(() => {
     // Fetch initial like status when the component mounts
     fetchLikeStatus();
-  }, [workoutId]);
+  }, [styleId]);
 
   const fetchLikeStatus = () => {
     axios
-      .get(`${API_URL}/api/workout/${workoutId}/liked`, {
+      .get(`${API_URL}/api/style/${styleId}/liked`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
@@ -29,34 +29,21 @@ function LikeWorkoutButton({ workoutId, onUpdateLikeCount}) {
   const handleLikeClick = () => {
     let requestPromise;
 
-    //without requestPromise...
-    // axios.post(
-    //     `${API_URL}/api/workouts/${workoutId}/liked`,
-    //     null, // Use null as the request body for a simple POST request
-    //     { headers }
-    //   )
-    //     .then(() => {
-    //       // Toggle the liked state after successful request
-    //       setLiked(!liked);
-    //     })
-    //     .catch((error) => {
-    //       console.error("Error liking/unliking workout:", error);
-    //     });
 
     const headers = {
       Authorization: `Bearer ${storedToken}`,
     };
 
     if (liked) {
-      // If already liked, unlike the workout
+      // If already liked, unlike the style
       requestPromise = axios.delete(
-        `${API_URL}/api/workout/${workoutId}/liked`,
+        `${API_URL}/api/style/${styleId}/liked`,
         { headers }
       );
     } else {
-      // If not liked, like the workout
+      // If not liked, like the style
       requestPromise = axios.post(
-        `${API_URL}/api/workout/${workoutId}/liked`,
+        `${API_URL}/api/style/${styleId}/liked`,
         null, // Use null as the request body for a simple POST request
         { headers }
       );
@@ -66,10 +53,10 @@ function LikeWorkoutButton({ workoutId, onUpdateLikeCount}) {
       .then(() => {
         // Toggle the liked state after successful request
         setLiked(!liked);
-        onUpdateLikeCount(workoutId, !liked);
+        onUpdateLikeCount(styleId, !liked);
       })
       .catch((error) => {
-        console.error("Error liking/unliking workout:", error);
+        console.error("Error liking/unliking style:", error);
       });
   };
 
@@ -82,4 +69,4 @@ function LikeWorkoutButton({ workoutId, onUpdateLikeCount}) {
   );
 }
 
-export default LikeWorkoutButton;
+export default LikeStyleButton;

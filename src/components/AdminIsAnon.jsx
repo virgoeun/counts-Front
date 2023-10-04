@@ -10,7 +10,7 @@ function AdminIsAnon({ children }) {
 
   if (isLoggedIn) {
     // If the user is logged in, navigate to Profile Page ❌    
-    return <Navigate to="/admin/profile" />;
+    return <Navigate to="/admin-profile" />;
   } else {
     // If the user is not logged in, allow to see the page ✅
     return children;

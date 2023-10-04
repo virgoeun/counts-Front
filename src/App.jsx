@@ -27,7 +27,7 @@ import AdminWorkoutPage from "./pages/AdminWorkoutPage";
 import AdminSignupPage from "./pages/AdminAuth/AdminSignupPage";
 import AdminLoginPage from "./pages/AdminAuth/AdminLoginPage";
 import AdminProfilePage from "./pages/AdminProfilePage";
-
+import AdminStylePage from "./pages/AdminsStylePage";
 
 function App() {
   return (
@@ -70,6 +70,15 @@ function App() {
           element={
             <IsPrivate>
               <AdminWorkoutPage />
+            </IsPrivate>
+          }
+        />
+
+<Route
+          path="/admin-style"
+          element={
+            <IsPrivate>
+              <AdminStylePage />
             </IsPrivate>
           }
         />
