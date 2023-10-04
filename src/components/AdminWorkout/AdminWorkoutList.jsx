@@ -25,6 +25,17 @@ function AdminWorkoutList() {
       });
   }, []); // The empty dependency array ensures the effect runs once, like componentDidMount
 
+  const updateLikeCount = (workoutId, liked) => {
+    setWorkouts((prevWorkouts) =>
+      prevWorkouts.map((workout) =>
+        workout._id === workoutId
+          ? { ...workout, likeCount: liked ? workout.likeCount + 1 : workout.likeCount - 1 }
+          : workout
+      )
+    );
+  };
+
+
   return (
     <div> 
       <h2> Workout List</h2>
@@ -32,8 +43,8 @@ function AdminWorkoutList() {
         {workouts.map((workout) => (
           <li key={workout._id}>
             <h3>{workout.title}</h3>
-            <LikeWorkoutButton workoutId={workout._id} />
-            <p>Workout Number: {workout.workoutNumber}</p>
+            <LikeWorkoutButton workoutId={workout._id} onUpdateLikeCount={updateLikeCount} />
+            <span> Likes: {workout.likeCount}</span>
             <p>Description: {workout.description}</p>
             {workout.imageUrl && (
               <img src={workout.imageUrl} alt={workout.title} width="300" />
