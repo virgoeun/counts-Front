@@ -4,18 +4,18 @@ import ProfileDetails from "../components/ProfileDetails";
 import Popup from "../components/ProfilePopup/Popup";
 import GetLikedWorkouts from "../components/UserWorkout/GetLikedWorkouts";
 import GetLikedStyles from "../components/Style/GetLikedStyles";
-import DailyApp from "../components/DailyApp";
+import SurveyApp from "../components/SurveyApp";
+import Checkin from "./Checkin";
+
 const API_URL = "http://localhost:5005";
 
 function ProfilePage() {
   const [profile, setProfile] = useState([]);
 
   const getProfile = () => {
-    // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
     console.log("StoredToken", storedToken);
 
-    // Send the token through the request "Authorization" Headers
     axios
       .get(`${API_URL}/api/profile`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -24,23 +24,19 @@ function ProfilePage() {
       .catch((error) => console.log(error));
   };
 
-  // We set this effect will run only once, after the initial render
-  // by setting the empty dependency array - []
   useEffect(() => {
     getProfile();
   }, []);
   console.log("Profile", profile); //
   return (
-    <div className="Profile-details">
-     <DailyApp/>
+    <div className="font-face-gm">
+      {/* <SurveyApp />
+      <Popup /> */}
       <ProfileDetails user={profile} />
-    
       <GetLikedWorkouts />
-      <GetLikedStyles/>
-    
-      <Popup />
-    
-  
+      <GetLikedStyles />
+      <Checkin/>
+     
     </div>
   );
 }

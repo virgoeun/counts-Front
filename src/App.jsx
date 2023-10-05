@@ -2,8 +2,9 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
+import "./Fonts/Hello-Star.woff"
 import ProfilePage from "./pages/ProfilePage";
-import ActivityDetails from "./components/ActivityDetails";
+import ActivityDetails from "./components/Activity/ActivityDetails";
 import Music from "./components/Music";
 import Video from "./components/Video";
 import Challenge from "./pages/Challenge";

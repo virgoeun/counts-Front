@@ -6,9 +6,9 @@ function Joke() {
         height: "auto",  // Maintain aspect ratio
       };
     return (
-        <div className="joke">
+        <div className="joke mb-5 mt-4">
             <h2>🤪 Oops! No Ecommerce Page YET!</h2>
-        <h4>Alice wanted to set up an E-commerce page but also needed to sleep... 😪</h4>
+        <h5 className="mb-5 mt-2">Alice wanted to set up an awesome E-commerce page but also needed to sleep... 😪</h5>
         <img src={code} alt="Your Image" style={imageStyle} />
       </div>
     );

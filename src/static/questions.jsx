@@ -1,4 +1,4 @@
-import { formTypes } from "../components/DailyActivity/DailyForm";
+import { formTypes } from "../components/FeedbackForm//DailyForm";
 
 const companyName = "Daily Log";
 

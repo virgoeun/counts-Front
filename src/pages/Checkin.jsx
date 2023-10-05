@@ -1,14 +1,22 @@
 //tilecontent try
-
+import Form from "react-bootstrap/Form";
+import "../app.css"
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Chart from "./Chart";
+import Graph from "../components/ChartGroup/ChartGroup";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../index.css";
+import AddActivity from "../components/Activity/AddActivity";
+import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+ faCalendarDays, faQuoteLeft
+} from "@fortawesome/free-solid-svg-icons";
 
 const API_URL = "http://localhost:5005";
 
@@ -16,9 +24,20 @@ function Checkin() {
   const [checkin, setCheckin] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [markedDates, setMarkedDates] = useState([]);
+  const [isChartVisible, setChartVisible] = useState(false);
+  const [isAddActivityVisible, setAddActivityVisible] = useState(false);
+
+  const handleToggleAddActivity = () => {
+    setAddActivityVisible(!isAddActivityVisible);
+  };
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+  };
+
+  //show chart area or not
+  const handleToggleChart = () => {
+    setChartVisible(!isChartVisible);
   };
 
   useEffect(() => {
@@ -62,32 +81,70 @@ function Checkin() {
       new Date(activity.date).toLocaleDateString() ===
       selectedDate?.toLocaleDateString()
   );
+  console.log("FIlter", filteredActivities)
 
   return (
     <div className="checkin-details">
-      <Calendar
-        value={selectedDate}
-        onChange={handleDateChange}
-        tileContent={tileContent}
-      />
-      <DatePicker
+   
+      <h2 className="mb-5 mt-5">Your Daily Movement </h2>
+      <div className="calendar-view">
+      <Button variant="warning" onClick={handleToggleAddActivity}>
+          {isAddActivityVisible ? 'Close' : 'Add Movement'}
+        </Button>
+        {isAddActivityVisible && <AddActivity />}
+
+        <div className="d-flex justify-content-center mt-5 mb-4">
+          <Calendar
+            value={selectedDate}
+            onChange={handleDateChange}
+            tileContent={tileContent}
+          />
+          {/* <DatePicker
         selected={selectedDate}
         onChange={handleDateChange}
         selectsRange={false}
         isClearable={true}
-      />
-      {filteredActivities.map((activity, index) => {
-        return (
-          <div className="Activity-card" key={activity._id}>
-            <Link to={`/checkin/${activity._id}`}>
-              <h3>Activity {index + 1}</h3>
-              <p>Date: {new Date(activity.date).toLocaleDateString()}</p>
-            </Link>
-          </div>
-        );
-      })}
+      /> */}
+        </div>
+       
 
-      <Chart />
+        {filteredActivities.map((activity, index) => {
+          return (
+            <div className="Activity-card" key={activity._id}>
+               <Form>
+                <Form.Control 
+                  type="text"
+                  style={{ border: '2px solid rgb(255, 204, 153)' }}
+                  as={Link}
+                  to={`/checkin/${activity._id}`}
+                  className="text-decoration-none custom-border"
+                >
+                  <FontAwesomeIcon icon={faQuoteLeft} /><h3>{activity.note}</h3>
+                
+                  <FontAwesomeIcon icon={faCalendarDays} /><p>Date {new Date(activity.date).toLocaleDateString()}</p>
+                </Form.Control>
+
+                <Form.Group className="pb-4">
+        <Form.Text id="editMessage" className="pb-3 " muted style={{ fontSize: "0.9em"  }}>
+          Click ☝️ for Edit
+        </Form.Text>
+      
+      </Form.Group>
+              </Form>
+
+             
+            </div>
+          );
+        })}
+
+<Button variant="info" className="mt-5" onClick={handleToggleChart}>
+          {isChartVisible ? "Close Analysis" : "Check Analysis"}
+        </Button>
+
+        {isChartVisible && <Graph />}
+
+        {/* <Chart /> */}
+      </div>
     </div>
   );
 }

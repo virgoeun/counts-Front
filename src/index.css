@@ -1,5 +1,6 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  
+
   line-height: 1.5;
   font-weight: 400;
 
@@ -14,6 +15,8 @@
   -webkit-text-size-adjust: 100%;
 }
 
+
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -23,14 +26,20 @@ a:hover {
   color: #535bf2;
 }
 
-body {
+/* body, html {
   margin: 0 auto;
   display: flex;
-  /* place-items: center; */
-  justify-content: space-between; /* Adjust to 'space-around' or 'flex-start' as needed */
-  max-width: 900px; /* Adjust this value to control the maximum width of the container */
+  font-family:"Hello-Star";
 
-}
+   
+  max-width: 1280px; 
+
+} */
+
+
+
+/* Other styles for your content go here */
+
 
 h1 {
   font-size: 3.2em;
@@ -70,100 +79,12 @@ button:focus-visible {
 }
 
 
-.image-gallery-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
 
-.style-card {
-  width: calc(33.33% - 20px); /* 33.33% of the container width with margin */
-  margin: 10px; /* Add margin between image cards */
-  text-align: center;
-  box-sizing: border-box; /* Include padding and borders in the width calculation */
-}
-
-.style-image {
-  max-width: 100%; /* Make the images responsive within their containers */
-  height: auto;
-}
-
-.style-image-wrapper {
-  position: relative;
-}
-
-
-.heart-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 5px;
-  font-weight: bold;
-  
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.hearted {
-  color: red; /* You can change the color to match your design */
-}
-.heart-icon {
-  width: 24px; /* Set the desired width of the heart icon */
-  height: 24px; /* Set the desired height of the heart icon */
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out; /* Add a smooth transition effect */
-  .heart-icon {
-    width: 24px; /* Set the desired width of the heart icon */
-    height: 24px; /* Set the desired height of the heart icon */
-    background-repeat: no-repeat;
-    background-size: contain;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out; /* Add a smooth transition effect */
-  
-    /* Set the background image based on the isBookmarked state */
-    /* background-image: url('./assets/hearts/heart-broken.png'); 
-    Replace with the actual path */
-  }
-  
-  .heart-icon.heartbroken {
-    background-image: url('./assets/hearts/heart-arrow.png'); /* Replace with the actual path */
-    transform: scale(1.1); /* Add a slight scaling effect when bookmarked */
-  }
-  /* Set the background image based on the isBookmarked state */
-  /* Replace with the actual path */
-}
-
-/* .heart-icon.heartbroken { */
-  /* background-image: url('./assets/hearts/heart-arrow.png'); /* Replace with the actual path */
-  /* transform: scale(1.1); Add a slight scaling effect when bookmarked */ 
-/* } */
-
-
-.info-card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.9); /* Add a background color for the info card */
-  padding: 10px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* Add any additional styling as needed */
-}
-
-/* Calendar */
-
-
+/* 
 .highlighted-date {
   background-color: #ff0000;
   border-radius: 100%;
   padding: 3px;
-}
+} */
 
 

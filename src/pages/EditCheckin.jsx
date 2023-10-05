@@ -26,16 +26,17 @@ function EditCheckin() {
       })
       .then((response) => {
         const oneActivity = response.data;
+        const formattedDate = oneActivity.date.substring(0, 10);
 
-        setDate(oneActivity.date);
+        setDate(formattedDate);
         setStress(oneActivity.stress);
         setSleep(oneActivity.sleep);
         setWater(oneActivity.water);
         setNote(oneActivity.note);
-        setSportType(oneActivity.sportType);
-        setSportLevel(oneActivity.sportLevel);
-        setSportDuration(oneActivity.sportDuration);
-        setSportDescription(oneActivity.sportDescription);
+        setSportType(oneActivity.sports[0].type);
+        setSportLevel(oneActivity.sports[0].level);
+        setSportDuration(oneActivity.sports[0].durationInMinutes);
+        setSportDescription(oneActivity.sports[0].description);
       })
       .catch((error) => console.log(error));
   }, [activityId]);

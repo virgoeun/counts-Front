@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import LikeWorkoutButton from "../UserWorkout/LikeWorkoutButton";
 import { Link } from "react-router-dom";
+import "../../app.css"
+import { Button } from 'react-bootstrap';
 
 const API_URL = "http://localhost:5005";
 
@@ -30,38 +31,49 @@ function EachStyle() {
   return (
     <div>
       {style ? (
-        <>
-          <h2>Style</h2>
-          <h3>{style.title}</h3>
+        <><div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}> 
+          <h2 className="mt-5 mb-5" style={{ fontSize: '2rem', color: '' }} >Style</h2>
+          <h4 className="mt-1 mb-3" style={{ fontSize: '1.45rem' }}>{style.title}</h4>
           {style.imageUrl && (
-            <img src={style.imageUrl} alt={style.title} width="300" />
+            <img src={style.imageUrl} alt={style.title} className="mb-4" width="300" />
           )}
-        
-          <p>Description: {style.description}</p>
-          <h3>Price: 48€</h3>
+      
+      <p style={{ maxWidth: '440px', textAlign: 'center',  color: '#808080' }} className="mb-3">{style.description}</p>
+      
+          <h5>Price: 48€</h5>
+          
+          
           <Link to="/joke" > 
                 <button
                   style={{
-                    marginTop: "0px",
-                    padding: "3px 9px",
+                    marginTop: "10px",
+  
+                    padding: "12px 25px",
                     cursor: "pointer",
                     backgroundColor: "Pink",
                     color: "black",
                     fontWeight:"bold",
                     border: "none",
                     borderRadius: "5px",
-                    fontSize: "12px",
+                    fontSize: "22px",
                   }}
                   // onClick={() => window.location.href = 'https://www.aloyoga.com/products/m3193r-conquer-1-4-zip-reform-long-sleeve-navy'}
                 >
                   
                   Add to Cart
                 </button>
+                
                 </Link>
+                <Link to="/style">
+      <Button variant="link" id="backtostyle-btn" className="mt-2">Back to Style List</Button>
+    </Link>
+                </div>
         </>
       ) : (
         <p>Loading style...</p>
       )}
+
+
     </div>
   );
 }

@@ -10,6 +10,19 @@ import {
   CartesianGrid,
 } from "recharts";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import classes from "../components/ChartGroup/graph.module.css";
+import { Form, Row, Col, Button } from "react-bootstrap";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faDumbbell,
+  faGlassWaterDroplet,
+} from "@fortawesome/free-solid-svg-icons";
+import { faBed } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"; // Import styles for date picker
 
@@ -24,6 +37,7 @@ export default function Chart() {
   const [waterData, setWaterData] = useState([]);
   const [sportsDurationData, setSportsDurationData] = useState([]);
   const [sleepData, setSleepData] = useState([]);
+  const [showChart, setShowChart] = useState(false);
 
   const [waterFilteredData, setWaterFilteredData] = useState([]);
   const [sleepFilteredData, setSleepFilteredData] = useState([]);
@@ -106,6 +120,7 @@ export default function Chart() {
   const handleRetrieveData = () => {
     // Call getActivity to retrieve and set data
     getActivity();
+    setShowChart(true); // Show the chart after retrieving data
   };
 
   useEffect(() => {
@@ -132,32 +147,66 @@ export default function Chart() {
     setSportsFilteredData(filteredSportsData);
   }, [startDate, endDate, sleepData, waterData, sportsDurationData]);
 
+  const handleCloseChart = () => {
+    setShowChart(false); // Close the chart
+    setIsLoaded(false);  //Reset isLoaded to show the "Check Activity Analysis" button
+  };
+
   return (
-    <div>
-      {/* Calendar Day-Picker */}
-      <div>
-        <DatePicker
+    <div
+      className={`${classes.wrapper} d-flex flex-column justify-content-center align-items-center`}
+    >
+      <Form.Group controlId="startDate" className="mb-4">
+        <Form.Label className="mb-2 mt-2 pt-2">
+          <FontAwesomeIcon icon={faCalendarDays} /> Choose Dates{" "}
+        </Form.Label>
+      </Form.Group>
+      <Form.Group>
+        <Form.Label className="mb-4 pr-3"> Start Date </Form.Label>
+        <Form.Control
+          as={DatePicker}
           selected={startDate}
           onChange={(date) => setStartDate(date)}
           selectsStart
           startDate={startDate}
           endDate={endDate}
+          className="form-control"
           placeholderText="Start Date"
         />
-        <DatePicker
+      </Form.Group>
+
+      <Form.Group controlId="endDate" className="mb-4">
+        <Form.Label className="mb-2">End Date</Form.Label>
+        <Form.Control
+          as={DatePicker}
           selected={endDate}
           onChange={(date) => setEndDate(date)}
           selectsEnd
           startDate={startDate}
           endDate={endDate}
           minDate={startDate}
+          className="form-control"
           placeholderText="End Date"
         />
-        <button onClick={handleRetrieveData}>Retrieve Data</button>
-      </div>
+      </Form.Group>
+      <Form.Group className="pb-4">
+        <Form.Text id="noteBlock" className="pb-5 " muted>
+          After first check, just change the dates. Analysis shows
+          up! 📊
+        </Form.Text>
+      
+      </Form.Group>
+
+      {!isLoaded && !showChart && (
+        <Col md={4}>
+          <Button variant="outline-info" onClick={handleRetrieveData} className="mb-4 ">
+            Let's see! 👀
+          </Button>
+        </Col>
+      )}
 
       {/* Display Filtered Data */}
-      {isLoaded ? (
+      {isLoaded && showChart && (
         <>
           {/* Water Consumption Chart */}
           <div>
@@ -217,10 +266,18 @@ export default function Chart() {
               />
             </LineChart>
           </div>
+          <Button variant="outline-info" onClick={handleCloseChart} className="mt-4 mb-4">
+            Close Chart
+          </Button>
         </>
-      ) : (
-        <p>Loading...</p>
       )}
+      {/* {isLoaded && !showChart ? (
+        <Col md={4}>
+          <Button variant="primary" onClick={handleRetrieveData}>
+            Check Activity Analysis
+          </Button>
+        </Col>
+      ) : null} */}
       {error && <p>Error: {error.message}</p>}
     </div>
   );

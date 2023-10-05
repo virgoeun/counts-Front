@@ -1,9 +1,50 @@
 #root {
+  
+  font-family: "Posterama Text W01 Regular";
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+} 
+
+/* @font-face {
+  font-family: "Bigote";
+  src: local("Bigote"), 
+  url(../src/Fonts/Bigote.ttf),
+  format("truetype");
+} */
+
+#root {
+  padding: 3rem;
+  /* text-align: center; */
+} 
+
+
+/* body, html {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Hello-Star";
+ 
+} */
+
+body {
+  font-family: "Hello-Star";
+  margin: 0;
 }
+
+
+/* .custom-border {
+  border: 1px solid yellow;
+} */
+
+#backtostyle-btn {
+  font-size:12px;
+}
+
+
 
 /* .logo {
   height: 6em;

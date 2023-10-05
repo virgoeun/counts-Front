@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import styled from "@emotion/styled";
-import "../index.css";
-import { Link } from "react-router-dom";
+// import React, { useState } from "react";
+// import styled from "@emotion/styled";
+// import "../index.css";
+// import { Link } from "react-router-dom";
 
-import { ActionButton } from "../components/DailyActivity/FormButton";
-import Survey from "./DailyActivity/FormQuestions";
-import { companyName } from "../static/questions";
+// import { ActionButton } from "../components/FeedbackForm//FormButton";
+// import Survey from "../components/FeedbackForm/FormQuestions";
+// import { companyName } from "../static/questions";
 
 // survey state: surveyResponse, pageIndex
 // survey props: onClose, onSubmit, open, title
@@ -32,8 +32,8 @@ import { companyName } from "../static/questions";
 //    - indication for when user completes survey
 //    - form is a popup there for it's NOT responsive
 
-const ActivatorContainer = styled.div``;
-const API_URL = "http://localhost:5005";
+// const ActivatorContainer = styled.div``;
+// const API_URL = "http://localhost:5005";
 
 // export default function DailyApp({ data }) {
 //   const [surveyOpen, setSurveyOpen] = useState(false);
@@ -91,55 +91,55 @@ const API_URL = "http://localhost:5005";
 
 // ... (previous imports and styled components)
 
-export default function DailyApp({ data }) {
-  const [surveyOpen, setSurveyOpen] = useState(false);
-  const [surveyResponse, setSurveyResponse] = useState({});
+// export default function DailyApp({ data }) {
+//   const [surveyOpen, setSurveyOpen] = useState(false);
+//   const [surveyResponse, setSurveyResponse] = useState({});
 
-  return (
-    <div className="App">
-      <ActivatorContainer>
-        <h3>{surveyResponse.completed && `Remember, every move COUNTS! 😉`}</h3>
-        <ActionButton onClick={() => setSurveyOpen(prevState => !prevState)}>
-          <h2>Feedback</h2>
-          <p>Your feedback is important for us💖</p>
-        </ActionButton>
+//   return (
+//     <div className="App">
+//       <ActivatorContainer>
+//         <h3>{surveyResponse.completed && `Remember, every move COUNTS! 😉`}</h3>
+//         <ActionButton onClick={() => setSurveyOpen(prevState => !prevState)}>
+//           <h2>Feedback</h2>
+//           <p>Your feedback is important for us💖</p>
+//         </ActionButton>
 
-        <Link to="/profile">
-          <button>Back to Profile 🔙</button>
-        </Link>
-      </ActivatorContainer>
+//         <Link to="/profile">
+//           <button>Back to Profile 🔙</button>
+//         </Link>
+//       </ActivatorContainer>
 
-      {surveyOpen && ( // Check if surveyOpen is true
-        <Survey
-          onClose={() => setSurveyOpen(false)}
-          onSubmit={(data) => {
-            setSurveyResponse(data);
+//       {surveyOpen && ( // Check if surveyOpen is true
+//         <Survey
+//           onClose={() => setSurveyOpen(false)}
+//           onSubmit={(data) => {
+//             setSurveyResponse(data);
 
-            if (data.completed) {
-              sendProfileData(data);
-            }
-          }}
-          open={surveyOpen}
-          title={companyName}
-        />
-      )}
+//             if (data.completed) {
+//               sendProfileData(data);
+//             }
+//           }}
+//           open={surveyOpen}
+//           title={companyName}
+//         />
+//       )}
 
-      {surveyResponse.completed && (
-        <ul>
-          {Object.keys(surveyResponse).map(
-            (key) =>
-              surveyResponse[key] && (
-                <li key={key}>
-                  {key}: {surveyResponse[key].toString()}
-                </li>
-              )
-          )}
-        </ul>
-      )}
+//       {surveyResponse.completed && (
+//         <ul>
+//           {Object.keys(surveyResponse).map(
+//             (key) =>
+//               surveyResponse[key] && (
+//                 <li key={key}>
+//                   {key}: {surveyResponse[key].toString()}
+//                 </li>
+//               )
+//           )}
+//         </ul>
+//       )}
 
-      <Link to="/profile">
-        <button>Back to Profile</button>
-      </Link>
-    </div>
-  );
-}
+//       <Link to="/profile">
+//         <button>Back to Profile</button>
+//       </Link>
+//     </div>
+//   );
+// }
