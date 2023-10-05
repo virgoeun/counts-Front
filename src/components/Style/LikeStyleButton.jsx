@@ -65,7 +65,7 @@ function LikeStyleButton({ styleId, onUpdateLikeCount}) {
   return (
     <div>
        <button onClick={handleLikeClick}>
-        {liked ? "❤️" : "🤍"} FAV
+        {liked ? "❤️" : "🤍"} Style
       </button>
     </div>
   );

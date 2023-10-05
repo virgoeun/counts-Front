@@ -1,4 +1,3 @@
-
 import ChallengePopup from "../components/Challenge/ChallengePopup";
 import PlaceDetails from "../components/GoogleApi/PlaceDetails";
 import Map from "../components/GoogleApi/Map";
@@ -6,15 +5,14 @@ import Map from "../components/GoogleApi/Map";
 const API_URL = "http://localhost:5005";
 
 function Challenge() {
-
-
   return (
     <div className="google-map-container">
       <PlaceDetails />
-      <Map/>
-      <ChallengePopup/>
+      <Map />
+      <ChallengePopup />
     </div>
-  );x
+  );
+  x;
 }
 
 export default Challenge;

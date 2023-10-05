@@ -7,18 +7,15 @@ import ActivityDetails from "./components/ActivityDetails";
 import Music from "./components/Music";
 import Video from "./components/Video";
 import Challenge from "./pages/Challenge";
-import Chart from "./pages/Chart";
-import DailyApp from "./components/DailyApp";
 import GeocodeForm from "./components/GoogleApi/Geocoder";
 import AdminIsAnon from "./components/AdminIsAnon";
-
+import Joke from "./components/Joke";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 import Checkin from "./pages/Checkin";
 import EditCheckin from "./pages/EditCheckin";
-import PlaceDetails from "./components/GoogleApi/PlaceDetails";
 import Favorite from "./pages/Favorite";
 import EditBookmark from "./components/Bookmarks/EditBookmark";
 import WorkoutPage from "./pages/WorkoutPage";
@@ -29,6 +26,8 @@ import AdminLoginPage from "./pages/AdminAuth/AdminLoginPage";
 import AdminProfilePage from "./pages/AdminProfilePage";
 import AdminStylePage from "./pages/AdminsStylePage";
 import AdminIsPrivate from "./components/AdminIsPrivate";
+import EachWorkout from "./components/AdminWorkout/EachWorkout";
+import EachStyle from "./components/AdminStyle/EachStyle";
 
 function App() {
   return (
@@ -44,6 +43,15 @@ function App() {
             <IsAnon>
               <SignupPage />
             </IsAnon>
+          }
+        />
+
+<Route
+          path="/joke"
+          element={
+         
+              <Joke />
+
           }
         />
 
@@ -148,6 +156,23 @@ function App() {
           element={
             <IsPrivate>
               <EditBookmark />
+            </IsPrivate>
+          }
+        />
+      <Route
+          path="/workout/:workoutId"
+          element={
+            <IsPrivate>
+              <EachWorkout />
+            </IsPrivate>
+          }
+        />
+
+<Route
+          path="/style/:styleId"
+          element={
+            <IsPrivate>
+              <EachStyle />
             </IsPrivate>
           }
         />

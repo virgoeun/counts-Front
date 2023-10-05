@@ -40,10 +40,7 @@ function ProfilePage() {
     
       <Popup />
     
-      {/* 
-      {profile.map((profile, index) => (
-        <ProfileCard key={index} {...profile} />
-      ))} */}
+  
     </div>
   );
 }

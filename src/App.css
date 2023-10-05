@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-.logo {
+/* .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -39,19 +39,6 @@
 
 .read-the-docs {
   color: #888;
-}
+} */
 
 
-/* TooLTIP */
-
-.custom-tooltip {
-  background-color: white;
-  border: 1px solid #ccc;
-  padding-right: 10px;
-  padding-left: 10px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  /* Customize other styles as needed */
-
-  /* Disable animation */
-  transition: none;
-}

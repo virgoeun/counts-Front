@@ -1,7 +1,7 @@
 import React from "react";
 
 import ChallengePopupFunction from "./ChallengePopupFunction";
-import "../ProfilePopup/Popup.css"
+import "../ProfilePopup/Popup.css";
 import { useState, useEffect } from "react";
 
 export default function ChallengePopup() {
@@ -11,7 +11,7 @@ export default function ChallengePopup() {
   useEffect(() => {
     setTimeout(() => {
       setTimedPopup(true);
-    }, 300); //edit it later!
+    }, 3000); //edit it later!
   }, []);
 
   return (
@@ -20,15 +20,11 @@ export default function ChallengePopup() {
         <h1> Popup</h1>
         <br></br>
         <button onClick={() => setButtonPopup(true)}>Open Pop up</button>
-        {/* <PopupFunction trigger={buttonPopup} setTrigger={setButtonPopup}>
-          <h3>My Popup</h3>
-          <p>This is my Button triggered popup!</p>
-        </PopupFunction> */}
 
-        <ChallengePopupFunction trigger={timedPopup} setTrigger={setTimedPopup}>
-          {/* <h3>My Second Popup</h3>
-          <p>This is my Timed popup!</p> */}
-        </ChallengePopupFunction>
+        <ChallengePopupFunction
+          trigger={timedPopup}
+          setTrigger={setTimedPopup}
+        ></ChallengePopupFunction>
       </main>
     </div>
   );

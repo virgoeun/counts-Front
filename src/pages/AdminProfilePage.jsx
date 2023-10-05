@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import {Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GeocodeForm from "../components/GoogleApi/Geocoder";
 import { AuthContext } from "../context/auth.context";
 
@@ -26,14 +26,10 @@ function AdminProfilePage() {
       .catch((error) => console.log(error));
   };
 
-  // We set this effect will run only once, after the initial render
-  // by setting the empty dependency array - []
   useEffect(() => {
-    // Call the function to get admin profile when the component mounts
     getAdminProfile();
-    
-    if (user && user.email.includes('admin')) {
-      // Redirect non-admin users to a specific page
+
+    if (user && user.email.includes("admin")) {
       navigate("/admin-profile");
     }
   }, [user, navigate]);
@@ -47,6 +43,9 @@ function AdminProfilePage() {
       </div>
       <Link to="/admin-workout">
         <button className="">Workout Program Management Page 💻</button>
+      </Link>
+      <Link to="/admin-style">
+        <button className="">Style Management Page 👠</button>
       </Link>
     </div>
   );

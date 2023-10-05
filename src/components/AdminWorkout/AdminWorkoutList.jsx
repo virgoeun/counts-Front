@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import LikeWorkoutButton from "../UserWorkout/LikeWorkoutButton";
-import HeartButton from "../HeartButton";
 
 const API_URL = "http://localhost:5005";
 
@@ -50,7 +49,7 @@ function AdminWorkoutList() {
             <LikeWorkoutButton workoutId={workout._id} onUpdateLikeCount={updateLikeCount} />
             <span> Likes: {workout.likeCount}</span>
             <p>Description: {workout.description}</p>
-            
+            <Link to={`/workout/${workout._id}`}>View Workout</Link>
           </li>
         ))}
       </ul>
