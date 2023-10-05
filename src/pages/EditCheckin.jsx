@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:5005";
 
@@ -39,8 +39,6 @@ function EditCheckin() {
       })
       .catch((error) => console.log(error));
   }, [activityId]);
-
-
 
   const handleFormSubmit = (e) => {
     e.preventDefault();

@@ -163,7 +163,7 @@ function AddActivity(props) {
           <option value="Mild 😌">Mild 😌</option>
         </select>
 
-        <label>Sport Duration (minutes):</label>
+        <label>Sport Duration:</label>
         <select
           name="sportDuration"
           value={sportDuration}

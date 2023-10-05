@@ -8,13 +8,12 @@ import {
   Tooltip,
   Legend,
   CartesianGrid,
-  ResponsiveContainer,
 } from "recharts";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"; // Import styles for date picker
 
-import CustomTooltip from "../components/Charts/CustomToolTip";
+import CustomTooltip from "../components/CustomToolTip/CustomToolTip";
 
 export default function Chart() {
   const [startDate, setStartDate] = useState(null);
@@ -162,7 +161,7 @@ export default function Chart() {
         <>
           {/* Water Consumption Chart */}
           <div>
-            <h2>Water Consumption Chart</h2>
+            <h2>Your Hydration Level(liters)</h2>
             <LineChart
               width={800}
               height={400}
@@ -185,7 +184,7 @@ export default function Chart() {
 
           {/* Sports Duration Chart */}
           <div>
-            <h2>Sports Duration Chart (minutes)</h2>
+            <h2>Workout Duration (minutes)</h2>
             <LineChart width={600} height={300} data={sportsFilteredData}>
               <CartesianGrid stroke="none" />
               <XAxis dataKey="date" />
@@ -203,7 +202,7 @@ export default function Chart() {
 
           {/* Sleep Chart */}
           <div>
-            <h2>Sleep Chart</h2>
+            <h2>Sleep Duration (hours)</h2>
             <LineChart width={600} height={300} data={sleepFilteredData}>
               <CartesianGrid stroke="none" />
               <XAxis dataKey="date" />

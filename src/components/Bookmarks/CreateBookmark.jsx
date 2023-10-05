@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
 import { faIcons } from "@fortawesome/free-solid-svg-icons";
 const API_URL = "http://localhost:5005";
 
@@ -136,7 +135,7 @@ function CreateBookmark({ refreshBookmarks }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {/* Add a button/link to open the URL */}
+            
             <button style={{ backgroundColor: 'rgb(255,192,203)', color: 'white', border: 'solid', padding: '5px 10px', borderRadius: '15px' }}>Link to the Page</button>
           </a>
           <strong>Category:</strong> {bookmark.category}

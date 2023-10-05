@@ -29,7 +29,7 @@ function AdminSignupPage() {
     axios
       .post(`${API_URL}/auth/admin-signup`, requestBody)
       .then((response) => {
-        navigate("/admin-profile");
+        navigate("/admin-login");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;

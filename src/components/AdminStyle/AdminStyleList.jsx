@@ -1,64 +1,7 @@
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-// import { Link } from "react-router-dom";
-// import LikeStyleButton from "../Style/LikeStyleButton";
 
-// const API_URL = "http://localhost:5005";
-
-// function AdminStyleList() {
-//   const [styles, setStyles] = useState([]);
-//   const storedToken = localStorage.getItem("authToken");
-
-//   useEffect(() => {
-//     axios
-//       .get(`${API_URL}/api/admin-style`, {
-//         headers: { Authorization: `Bearer ${storedToken}` },
-//       })
-//       .then((response) => {
-//         setStyles(response.data);
-//         console.log("GET Style Resonpse", response.data)
-//       })
-//       .catch((error) => {
-//         console.error("Error fetching Style data:", error);
-//       });
-//   }, []); // The empty dependency array ensures the effect runs once, like componentDidMount
-
-//   const updateLikeCount = (styleId, liked) => {
-//     setStyles((prevStyles) =>
-//     prevStyles.map((style) =>
-//         style._id === styleId
-//           ? { ...style, likeCount: liked ? style.likeCount + 1 : style.likeCount - 1 }
-//           : style
-//       )
-//     );
-//   };
-
-//   return (
-//     <div>
-//       <h2> Style List</h2>
-//       <ul>
-//         {styles.map((style) => (
-//           <li key={style._id}>
-//             <h3>{style.title}</h3>
-//             {style.imageUrl && (
-//               <img src={style.imageUrl} alt={style.title} width="300" />
-//             )}
-//             <LikeStyleButton styleId={style._id} onUpdateLikeCount={updateLikeCount} />
-//             <span> Likes: {style.likeCount}</span>
-
-//             <p>Description: {style.description}</p>
-
-//           </li>
-//         ))}
-//       </ul>
-
-//     </div>
-//   );
-// }
-
-// export default AdminStyleList;
 
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import LikeStyleButton from "../Style/LikeStyleButton";
 
@@ -127,7 +70,7 @@ const AdminStyleList = () => {
                   style={{
                     padding: "5px 10px",
                     cursor: "pointer",
-                    backgroundColor: "blue",
+                    backgroundColor: "pink",
                     color: "white",
                     border: "none",
                     borderRadius: "5px",
@@ -137,16 +80,17 @@ const AdminStyleList = () => {
                   }}
                   onClick={() => handleInfoClick(style._id)}
                 >
-                 <FontAwesomeIcon icon={faCirclePlus} /> Info
+                 <FontAwesomeIcon icon={faCirclePlus} /> 
                 </button>
               </div>
             )}
+                  <Link to={`/style/${style._id}`}>View Style</Link>
             <LikeStyleButton
               styleId={style._id}
               onUpdateLikeCount={updateLikeCount}
             />
             <span>Likes: {style.likeCount}</span>
-
+          
             {modalVisibility[style._id] && (
               <div
                 style={{
@@ -169,9 +113,9 @@ const AdminStyleList = () => {
                       [style._id]: e.target.value,
                     })
                   }
-                  placeholder="Write your information here..."
-                  rows="2"
-                  cols="1"
+                  placeholder="Counts FAV!"
+                  rows="1"
+                  cols="6"
                   style={{
                     width: "70%",
                     paddingTop: "4px",
@@ -181,12 +125,12 @@ const AdminStyleList = () => {
                     border: "none",
                     marginTop: "0px",
                     resize: "none",
-                    fontSize: "15px",
-                    color: "rgba(128, 128, 128, 1)",
+                    fontSize: "12px",
+                    color: "red",
                     textAlign:"center"
                   }}
                 />
-                <button
+                {/* <button
                   style={{
                     marginTop: "10px",
                     padding: "3px 9px",
@@ -200,29 +144,40 @@ const AdminStyleList = () => {
                   onClick={() => handleInfoClick(style._id)}
                 >
                   Close
-                </button>
+                </button> */}
+                <Link to="/joke" > 
                 <button
                   style={{
-                    marginTop: "10px",
+                    marginTop: "0px",
                     padding: "3px 9px",
                     cursor: "pointer",
                     backgroundColor: "Pink",
                     color: "black",
+                    fontWeight:"bold",
                     border: "none",
                     borderRadius: "5px",
-                    fontSize: "10px",
+                    fontSize: "12px",
                   }}
-                  onClick={() => window.location.href = 'https://www.aloyoga.com/products/m3193r-conquer-1-4-zip-reform-long-sleeve-navy'}
+                  // onClick={() => window.location.href = 'https://www.aloyoga.com/products/m3193r-conquer-1-4-zip-reform-long-sleeve-navy'}
                 >
-                  Add to Cart
+                  
+                  Quick Add
                 </button>
+                </Link>
               </div>
+              
             )}
           </li>
+          
         ))}
       </ul>
+
     </div>
   );
 };
 
 export default AdminStyleList;
+
+
+
+

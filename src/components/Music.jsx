@@ -40,8 +40,6 @@ const Music = () => {
             {spotifyPlaylist.slice(0, 5).map((playlist, index) => (
               <div key={index}>
                 <h2>{playlist.data.name}</h2>
-                {/* <p>Description: {playlist.data.description}</p>
-                <p>Owner: {playlist.data.owner.name}</p> */}
                 <button
                   onClick={() => {
                     window.open(playlist.data.uri, "_blank");
