@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import LikeWorkoutButton from "./LikeWorkoutButton";
+import { Link } from "react-router-dom";
 
 const API_URL = "http://localhost:5005";
 
@@ -30,21 +31,25 @@ const GetLikedWorkouts = () => {
 
   return (
     <div>
+      
       <h2>Your FAV Workouts:</h2>
       {likedWorkouts.map((workout) => (
         <div key={workout._id} style={{ marginBottom: "20px" }}>
+           
           <h3>{workout.title}</h3>
           <img
             src={workout.imageUrl}
             alt={workout.title}
             style={{ width: "300px", height: "390px" }}
           />
+          
           <LikeWorkoutButton
             workoutId={workout._id}
             onUpdateLikeCount={() => {
               // Do something when like count is updated
             }}
           />
+       <Link to={`/workout/${workout._id}`}>Go to Programm</Link>
         </div>
       ))}
     </div>

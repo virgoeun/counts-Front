@@ -77,7 +77,7 @@ function LikeWorkoutButton({ workoutId, onUpdateLikeCount}) {
   return (
     <div>
        <button onClick={handleLikeClick}>
-        {liked ? "❤️" : "🤍"} Workout
+        {liked ? "❤️" : "🤍"} FAV
       </button>
     </div>
   );

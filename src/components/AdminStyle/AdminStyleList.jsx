@@ -89,6 +89,7 @@ const AdminStyleList = () => {
               styleId={style._id}
               onUpdateLikeCount={updateLikeCount}
             />
+           
             <span>Likes: {style.likeCount}</span>
           
             {modalVisibility[style._id] && (

@@ -8,7 +8,7 @@ function Joke() {
     return (
         <div className="joke">
             <h2>🤪 Oops! No Ecommerce Page YET!</h2>
-        <h4>Alice wanted to put Ecommerce function but also needed to sleep... 😪🫠🙄</h4>
+        <h4>Alice wanted to set up an E-commerce page but also needed to sleep... 😪</h4>
         <img src={code} alt="Your Image" style={imageStyle} />
       </div>
     );

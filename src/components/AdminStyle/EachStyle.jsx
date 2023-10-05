@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import LikeWorkoutButton from "../UserWorkout/LikeWorkoutButton";
-import HeartButton from "../HeartButton";
+import { Link } from "react-router-dom";
 
 const API_URL = "http://localhost:5005";
 
@@ -26,12 +26,6 @@ function EachStyle() {
       });
   }, [styleId]); // Fetch data whenever workoutId changes
 
-  const updateLikeCount = (liked) => {
-    setWorkout((prevStyle) => ({
-      ...prevStyle,
-      likeCount: liked ? prevStyle.likeCount + 1 : prevStyle.likeCount - 1,
-    }));
-  };
 
   return (
     <div>
@@ -42,9 +36,28 @@ function EachStyle() {
           {style.imageUrl && (
             <img src={style.imageUrl} alt={style.title} width="300" />
           )}
-          <LikeWorkoutButton styleId={style._id} onUpdateLikeCount={updateLikeCount} />
-          <span>Likes: {style.likeCount}</span>
+        
           <p>Description: {style.description}</p>
+          <h3>Price: 48€</h3>
+          <Link to="/joke" > 
+                <button
+                  style={{
+                    marginTop: "0px",
+                    padding: "3px 9px",
+                    cursor: "pointer",
+                    backgroundColor: "Pink",
+                    color: "black",
+                    fontWeight:"bold",
+                    border: "none",
+                    borderRadius: "5px",
+                    fontSize: "12px",
+                  }}
+                  // onClick={() => window.location.href = 'https://www.aloyoga.com/products/m3193r-conquer-1-4-zip-reform-long-sleeve-navy'}
+                >
+                  
+                  Add to Cart
+                </button>
+                </Link>
         </>
       ) : (
         <p>Loading style...</p>
