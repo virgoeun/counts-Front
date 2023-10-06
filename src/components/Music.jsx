@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Button } from "react-bootstrap";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://counts-back.onrender.com";
 
 const Music = () => {
     const [spotifyPlaylist, setspotifyPlaylist] = useState([]);

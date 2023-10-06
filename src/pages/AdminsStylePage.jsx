@@ -4,7 +4,7 @@ import axios from "axios";
 import AddAmindStyle from "../components/AdminStyle/AddAdminStyle";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://counts-back.onrender.com";
 
 function AdminStylePage() {
   const [adminStyles, setAdminStyles] = useState([]);

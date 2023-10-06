@@ -6,7 +6,7 @@ import { faIcons } from "@fortawesome/free-solid-svg-icons";
 import { Card, Button, Form, FormGroup } from "react-bootstrap";
 import "../../App.css";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://counts-back.onrender.com";
 
 function CreateBookmark({ refreshBookmarks }) {
   const navigate = useNavigate();

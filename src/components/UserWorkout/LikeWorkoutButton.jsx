@@ -5,7 +5,7 @@ function LikeWorkoutButton({ workoutId, onUpdateLikeCount}) {
   const [liked, setLiked] = useState(false);
   const storedToken = localStorage.getItem("authToken");
 
-  const API_URL = "http://localhost:5005";
+  const API_URL = "https://counts-back.onrender.com";
 
   useEffect(() => {
     // Fetch initial like status when the component mounts
