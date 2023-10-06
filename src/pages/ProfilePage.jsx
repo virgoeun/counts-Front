@@ -11,7 +11,7 @@ import { Card, Button, Form, FormGroup } from "react-bootstrap";
 
 import Music from "../components/Music";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://counts-back.onrender.com";
 
 function ProfilePage() {
   const [profile, setProfile] = useState([]);

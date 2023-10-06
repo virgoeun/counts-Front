@@ -102,8 +102,8 @@ function Map() {
       <Card.Body className="text-center">
       <Card.Title className="mb-5" style={{ fontSize: "39px" }}>Get a Free Smoothie Every day!🥤</Card.Title>
       <Card.Img  className="pb-5" variant="top" src={hoo} style={{ width:"20%", height: "800px", objectFit: "cover" }} />
-      <Card.Img  className="pb-5" variant="top" src={yayi} style={{ width:"40%", height: "800px", objectFit: "cover" }} />
-      <Card.Img  className="pb-5" variant="top" src={greenjuice} style={{ width:"40%", height: "800px", objectFit: "cover" }} />
+      <Card.Img  className="pb-5" variant="top" src={yayi} style={{ width:"20%", height: "800px", objectFit: "cover" }} />
+      <Card.Img  className="pb-5" variant="top" src={greenjuice} style={{ width:"30%", height: "800px", objectFit: "cover" }} />
       
       <Card.Text style={{
   maxWidth: "80%", 
@@ -121,7 +121,7 @@ function Map() {
      
   
       
-    <div id="map" style={{ height: "60vh", width: "100%", margin: "auto" }}></div>
+    <div id="map" style={{ height: "60vh", width: "60%", margin: "auto" }}></div>
     </div>
   );
 }
