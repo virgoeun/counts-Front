@@ -220,3 +220,29 @@ padding-top:200px;
 .view-style-link:hover {
   color: blue;
 }
+
+
+  
+  /* Add styles for the ResponsiveContainer if needed */
+  .wrapper .recharts-responsive-container {
+    width: 20%;
+    height: 100%;
+  }
+
+
+
+  .wrapper {
+    background-color: aliceblue;
+    width: 900px;
+    height: 100%;
+    box-shadow: 10px 8px 20px rgb(123, 122, 122);
+    -webkit-transition:  box-shadow .2s ease-in;
+    display:block;
+    margin: 20px auto;
+}
+
+  
+.wrapper:hover{ 
+    box-shadow: 30px 8px 30px grey;
+   -webkit-transition:  box-shadow .2s ease-in;
+ }

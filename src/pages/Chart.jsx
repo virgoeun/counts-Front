@@ -13,7 +13,7 @@ import {
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import "../components/ChartGroup/graph.module.css"
+import "../App.css"
 // import classes from "../components/ChartGroup/graph.module.css";
 import { Form, Col, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

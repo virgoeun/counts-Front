@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from '../../pages/Chart';
-import classes from './graph.module.css';
+import '../../App.css';
 import { ResponsiveContainer } from 'recharts';
 
 const Graph = (props) => {
