@@ -131,7 +131,7 @@ const AdminStyleList = () => {
                   }}
                 />
 
-                <Link to="/joke">
+                <Link to="/joke" target="_blank">
                   <button
                     style={{
                       marginTop: "0px",

@@ -52,7 +52,7 @@ function EachWorkout() {
             Description: {workout.description}
           </p>
           <h3>Price: 25.55€</h3>
-          <Link to="/joke">
+          <Link to="/joke" target="_blank">
             <button
               style={{
                 marginTop: "10px",
