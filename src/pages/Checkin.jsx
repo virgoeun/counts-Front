@@ -1,6 +1,6 @@
 //tilecontent try
 import Form from "react-bootstrap/Form";
-import "../app.css"
+import "../App.css"
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";

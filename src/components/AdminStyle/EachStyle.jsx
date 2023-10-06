@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "../../app.css";
+import "../../App.css";
 import { Button } from "react-bootstrap";
 
 const API_URL = "https://counts-back.onrender.com";
