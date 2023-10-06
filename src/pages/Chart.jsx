@@ -8,19 +8,14 @@ import {
   Tooltip,
   Legend,
   CartesianGrid,
+  ResponsiveContainer,
 } from "recharts";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import classes from "../components/ChartGroup/graph.module.css";
-import { Form, Row, Col, Button } from "react-bootstrap";
-
+import { Form, Col, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faDumbbell,
-  faGlassWaterDroplet,
-} from "@fortawesome/free-solid-svg-icons";
-import { faBed } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 
 import DatePicker from "react-datepicker";
@@ -31,7 +26,6 @@ import CustomTooltip from "../components/CustomToolTip/CustomToolTip";
 export default function Chart() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  //const [filteredData, setFilteredData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [waterData, setWaterData] = useState([]);
@@ -66,10 +60,13 @@ export default function Chart() {
         // Extract water data
         const waterDataRetrieved = data.map((item) => ({
           date: item.date.split("T")[0],
-          water: item.water ? parseInt(item.water) : 0,
+          water: item.water ? parseInt(item.water) : 0, 
         }));
+        //parses the item.water to an integer using parseInt. 
+        //If item.water is a truthy value, it parses it as an integer
 
         // Extract sports duration data and aggregate it
+        //because it's array (so neend to accumulate)++ or not(if no exisitng data...)
         const sportsDurationDataRetrieved = data.reduce((accumulator, item) => {
           const date = item.date.split("T")[0];
 
@@ -78,7 +75,7 @@ export default function Chart() {
               if (sport.durationInMinutes) {
                 const minutes = sport.durationInMinutes;
 
-                if (accumulator[date]) {
+                if (accumulator[date]) { //Checks if accumulator already has an entry for the current date.
                   accumulator[date] += minutes;
                 } else {
                   accumulator[date] = minutes;
@@ -95,6 +92,15 @@ export default function Chart() {
           date: item.date.split("T")[0],
           sleep: item.sleep ? parseFloat(item.sleep) : 0,
         }));
+
+        //if item.water is truthy (a valid numeric string), 
+        //it will be converted to an integer using parseInt. Otherwise, it will default to 0.
+       //ParseInt as well valid
+        // const sleepDataRetrieved = data.map((item) => ({
+        //   date: item.date.split("T")[0],
+        //   sleep: item.sleep ? parseInt(item.sleep) : 0,
+        // }));
+
 
         // Convert sports duration data to an array and format hours with one decimal place
         const sportsDurationChartData = Object.keys(
@@ -149,9 +155,11 @@ export default function Chart() {
 
   const handleCloseChart = () => {
     setShowChart(false); // Close the chart
-    setIsLoaded(false);  //Reset isLoaded to show the "Check Activity Analysis" button
+    setIsLoaded(false);
+    console.log(filteredSportsData) //Reset isLoaded to show the "Check Activity Analysis" button
   };
 
+ 
   return (
     <div
       className={`${classes.wrapper} d-flex flex-column justify-content-center align-items-center`}
@@ -191,15 +199,17 @@ export default function Chart() {
       </Form.Group>
       <Form.Group className="pb-4">
         <Form.Text id="noteBlock" className="pb-5 " muted>
-          After first check, just change the dates. Analysis shows
-          up! 📊
+          After first check, just change the dates. Analysis shows up! 📊
         </Form.Text>
-      
       </Form.Group>
 
       {!isLoaded && !showChart && (
         <Col md={4}>
-          <Button variant="outline-info" onClick={handleRetrieveData} className="mb-4 ">
+          <Button
+            variant="outline-info"
+            onClick={handleRetrieveData}
+            className="mb-4 "
+          >
             Let's see! 👀
           </Button>
         </Col>
@@ -211,62 +221,72 @@ export default function Chart() {
           {/* Water Consumption Chart */}
           <div>
             <h2>Your Hydration Level(liters)</h2>
-            <LineChart
-              width={800}
-              height={400}
-              data={waterFilteredData}
-              margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-            >
-              <CartesianGrid stroke="none" />
-              <XAxis dataKey="date" />
-              <YAxis />
-              <Tooltip content={<CustomTooltip />} />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="water"
-                stroke="#8884d8"
-                activeDot={{ r: 8 }}
-              />
-            </LineChart>
+            <ResponsiveContainer width="100%" height={200}>
+              <LineChart
+                width={800}
+                height={400}
+                data={waterFilteredData}
+                margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+              >
+                <CartesianGrid stroke="none" />
+                <XAxis dataKey="date" />
+                <YAxis />
+                <Tooltip content={<CustomTooltip />} />
+                <Legend />
+                <Line
+                  type="monotone"
+                  dataKey="water"
+                  stroke="#8884d8"
+                  activeDot={{ r: 8 }} //a circle with a radius of 8 units.
+                />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
 
           {/* Sports Duration Chart */}
           <div>
             <h2>Workout Duration (minutes)</h2>
-            <LineChart width={600} height={300} data={sportsFilteredData}>
-              <CartesianGrid stroke="none" />
-              <XAxis dataKey="date" />
-              <YAxis />
-              <Tooltip content={<CustomTooltip />} />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="minutes"
-                name="Sports Duration (minutes)"
-                stroke="#82ca9d"
-              />
-            </LineChart>
+            <ResponsiveContainer width="100%" height={200}>
+              <LineChart width={600} height={300} data={sportsFilteredData}>
+                <CartesianGrid stroke="none" />
+                <XAxis dataKey="date" />
+                <YAxis />
+                <Tooltip content={<CustomTooltip />} />
+                <Legend />
+                <Line
+                  type="monotone"
+                  dataKey="minutes"
+                  name="Sports Duration (minutes)"
+                  stroke="#82ca9d"
+                />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
 
           {/* Sleep Chart */}
           <div>
             <h2>Sleep Duration (hours)</h2>
-            <LineChart width={600} height={300} data={sleepFilteredData}>
-              <CartesianGrid stroke="none" />
-              <XAxis dataKey="date" />
-              <YAxis />
-              <Tooltip content={<CustomTooltip />} />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="sleep"
-                name="Sleep (hours)"
-                stroke="#ff0000" // Choose an appropriate color
-              />
-            </LineChart>
+            <ResponsiveContainer width="100%" height={200}>
+              <LineChart data={sleepFilteredData}>
+                <CartesianGrid stroke="none" />
+                <XAxis dataKey="date" />
+                <YAxis />
+                <Tooltip content={<CustomTooltip />} />
+                <Legend />
+                <Line
+                  type="monotone"
+                  dataKey="sleep"
+                  name="Sleep (hours)"
+                  stroke="#ff0000" // Choose an appropriate color
+                />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
-          <Button variant="outline-info" onClick={handleCloseChart} className="mt-4 mb-4">
+          <Button
+            variant="outline-info"
+            onClick={handleCloseChart}
+            className="mt-4 mb-4"
+          >
             Close Chart
           </Button>
         </>

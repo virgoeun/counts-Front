@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Card, Button } from "react-bootstrap";
+
 const API_URL = "http://localhost:5005";
 
 const Music = () => {
@@ -33,32 +35,32 @@ const Music = () => {
     }, []);
   
     return (
-      <div>
-        <h1>Inspiration Page</h1>
+      <div className="container mt-5">
+      <h1>Counts Flow 🎵</h1>
+      <p>Along with the music flow, get you body moving!💃 </p>
+      <div className="d-flex flex-row flex-wrap justify-content-between">
         {spotifyPlaylist.length > 0 ? (
-          <div>
-            {spotifyPlaylist.slice(0, 5).map((playlist, index) => (
-              <div key={index}>
-                <h2>{playlist.data.name}</h2>
-                <button
+          spotifyPlaylist.slice(0, 4).map((playlist, index) => (
+            <Card key={index} style={{ width: "18rem", margin: "10px 0" }}>
+              <Card.Img variant="top" src={playlist.data.images.items[0].sources[0].url} />
+              <Card.Body>
+                <Card.Title>{playlist.data.name}</Card.Title>
+                <Button
                   onClick={() => {
                     window.open(playlist.data.uri, "_blank");
                   }}
                 >
                   Check on Spotify 🎧
-                </button>
-                <img
-                  src={playlist.data.images.items[0].sources[0].url}
-                  alt={`Playlist ${index}`}
-                />
-              </div>
-            ))}
-          </div>
+                </Button>
+              </Card.Body>
+            </Card>
+          ))
         ) : (
           <p>Loading Spotify Playlist ...🥁🎶</p>
         )}
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default Music;

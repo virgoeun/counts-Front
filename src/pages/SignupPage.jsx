@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Button, Form } from "react-bootstrap";
 
 const API_URL = "http://localhost:5005";
 //const API_URL = "https://counts-back.onrender.com"
@@ -35,30 +36,35 @@ function SignupPage() {
 
   return (
     <div className="SignupPage">
-      <h1>Sign Up</h1>
-
-      <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
+      <div> 
+      <h1 className="mb-5">Sign Up</h1>
+      <div className="d-flex justify-content-center mt-5 mb-4">
+      <Form  onSubmit={handleSignupSubmit}> 
+      <Form.Group className="mb-3">
+        <Form.Label className="mb-5">Email:</Form.Label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label>Password:</label>
+        </Form.Group>
+        <Form.Group className="mb-3">
+        <label className="ml-5">Password:</label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
-
+        </Form.Group>
+ <Form.Group className="mb-3"> 
         <label>Name:</label>
         <input type="text" name="name" value={name} onChange={handleName} />
-
-        <button type="submit">Sign Up</button>
-      </form>
-
+        </Form.Group>
+        <Form.Group ><Button variant="outline-info" type="submit">Sign Up</Button> </Form.Group>
+        </Form>
+        </div>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Already have account?</p>
       <Link to={"/login"}> Login</Link>
+      </div>
     </div>
   );
 }

@@ -140,11 +140,14 @@ function Checkin() {
 <Button variant="info" className="mt-5" onClick={handleToggleChart}>
           {isChartVisible ? "Close Analysis" : "Check Analysis"}
         </Button>
-
+       
         {isChartVisible && <Graph />}
 
         {/* <Chart /> */}
       </div>
+      <Form.Text id="noteBlock" className="mt-2" muted>
+                  AI-powered Smart Analysis is comming Soon! 🙌
+                </Form.Text>
     </div>
   );
 }

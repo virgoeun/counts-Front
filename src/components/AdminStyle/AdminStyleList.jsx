@@ -4,10 +4,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import LikeStyleButton from "../Style/LikeStyleButton";
+import { Card, Button } from "react-bootstrap";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
-
+import "../../App.css"
 
 const API_URL = "http://localhost:5005";
 
@@ -58,11 +59,11 @@ const AdminStyleList = () => {
 
   return (
     <div>
-      <h2>Style List</h2>
+      <h2 className="mb-5 mt-5">  Counts STYLE List</h2>
       <ul>
         {styles.map((style) => (
           <li key={style._id}>
-            <h3>{style.title}</h3>
+            <h5 className="mb-3 mt-5">{style.title}</h5>
             {style.imageUrl && (
               <div style={{ position: "relative" }}>
                 <img src={style.imageUrl} alt={style.title} width="300" />
@@ -84,7 +85,9 @@ const AdminStyleList = () => {
                 </button>
               </div>
             )}
+            <div className="mb-3 mt-3">
                   <Link to={`/style/${style._id}`}>View Style</Link>
+                  </div>
             <LikeStyleButton
               styleId={style._id}
               onUpdateLikeCount={updateLikeCount}

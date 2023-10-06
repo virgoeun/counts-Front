@@ -6,6 +6,10 @@ import GetLikedWorkouts from "../components/UserWorkout/GetLikedWorkouts";
 import GetLikedStyles from "../components/Style/GetLikedStyles";
 import SurveyApp from "../components/SurveyApp";
 import Checkin from "./Checkin";
+import Video from "../components/Video";
+import { Card, Button, Form, FormGroup } from "react-bootstrap";
+
+import Music from "../components/Music";
 
 const API_URL = "http://localhost:5005";
 
@@ -30,13 +34,21 @@ function ProfilePage() {
   console.log("Profile", profile); //
   return (
     <div className="font-face-gm">
-      {/* <SurveyApp />
-      <Popup /> */}
+      {/* <SurveyApp /> */}
+      <Popup />
       <ProfileDetails user={profile} />
-      <GetLikedWorkouts />
-      <GetLikedStyles />
-      <Checkin/>
+      <Music/>
+      <div className=""> 
+    
+      <GetLikedWorkouts user={profile}/>
+      </div>
+      <div className=""> 
+      <GetLikedStyles user={profile} />
+      </div>
      
+      <div className="service pt-5 pb-5 mb-5"> 
+        <Video/>
+        </div>
     </div>
   );
 }

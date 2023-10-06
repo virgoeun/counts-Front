@@ -1,13 +1,18 @@
-/* TooLTIP */
 .custom-tooltip {
-    background-color: white;
-    border: 1px solid #ccc;
-    padding-right: 10px;
-    padding-left: 10px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    /* Customize other styles as needed */
-  
-    /* Disable animation */
-    transition: none;
-  }
-  
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 6px; /* Adjust the padding as needed */
+  display: flex;
+  flex-direction: column; /* Align paragraphs in a column */
+  align-items: flex-start; /* Align paragraphs to the left */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px; /* Optional: Rounded corners for the border */
+  /* Customize other styles as needed */
+font-size: 12px;
+  /* Disable animation */
+  transition: none;
+}
+
+.custom-tooltip p {
+  margin: 5px 0; /* Adjust the margin as needed */
+}

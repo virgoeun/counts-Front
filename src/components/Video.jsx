@@ -34,15 +34,24 @@ const Videos = () => {
       const randomIndex = Math.floor(Math.random() * videos.length);
       const selectedVideo = videos[randomIndex];
 
-      myVideo3.resize(fill().width(700).height(500)
+      myVideo3.resize(fill().width(500).height(300)
       .gravity(Gravity.autoGravity().autoFocus(AutoFocus.focusOn(FocusOn.faces())))) // Crop the video, focusing on the faces.
       .roundCorners(byRadius(20))  // Round the corners.
 
       return (
         <div>
-            <h3>Today's Count Snack for you ❤️ </h3>
-          <AdvancedVideo cldVid={myVideo3} controls />
+        <h3 className="mt-5">Today's Count Snack for you 🍿</h3>
+        <p className="mb-5 mt-5" style={{ maxWidth: '600px', margin: '0 auto' }}>
+          Today's Counts Move is with Yoga instructor Daniel! She will guide us on how to release back pain step by step. If you are interested in her program, please check our MOVE Program Page!
+        </p>
+        <div className="d-flex justify-content-center">
+          <div className="card text-center" style={{ width: "700px" }}>
+            <div className="card-body">
+              <AdvancedVideo cldVid={myVideo3} controls />
+            </div>
+          </div>
         </div>
+      </div>
       )
     };
 export default Videos;

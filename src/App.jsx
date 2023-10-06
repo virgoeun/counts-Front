@@ -1,8 +1,8 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import HomePage from "./pages/HomePage";
-import "./Fonts/Hello-Star.woff"
+import HomePage from "./pages/LandingPage/Homepage";
+import "./Fonts/Hello-Star.woff";
 import ProfilePage from "./pages/ProfilePage";
 import ActivityDetails from "./components/Activity/ActivityDetails";
 import Music from "./components/Music";
@@ -29,38 +29,39 @@ import AdminStylePage from "./pages/AdminsStylePage";
 import AdminIsPrivate from "./components/AdminIsPrivate";
 import EachWorkout from "./components/AdminWorkout/EachWorkout";
 import EachStyle from "./components/AdminStyle/EachStyle";
+import Home from "./pages/LandingPage/Home";
 
 function App() {
+  const location = useLocation();
+
+  const routesToHideNavbar = ["/joke", "/about", "/home"];
+
+  const shouldShowNavbar = !routesToHideNavbar.includes(location.pathname);
+
   return (
     <div className="App">
-      <div className="admin-routes"></div>
-      <Navbar/>
+      {shouldShowNavbar && <Navbar />}
+
       <Routes>
-        <Route path="/" element={<HomePage />} />
-    
-        <Route
-          path="/signup"
-          element={
-            <IsAnon>
-              <SignupPage />
-            </IsAnon>
-          }
-        />
+        <Route path="/" element={<Home />} />
 
-<Route
-          path="/joke"
-          element={
-         
-              <Joke />
+       
 
-          }
-        />
+        <Route path="/joke" element={<Joke />} />
 
         <Route
           path="/login"
           element={
             <IsAnon>
               <LoginPage />
+            </IsAnon>
+          }
+        />
+         <Route
+          path="/signup"
+          element={
+            <IsAnon>
+              <SignupPage />
             </IsAnon>
           }
         />
@@ -160,7 +161,7 @@ function App() {
             </IsPrivate>
           }
         />
-      <Route
+        <Route
           path="/workout/:workoutId"
           element={
             <IsPrivate>
@@ -169,7 +170,7 @@ function App() {
           }
         />
 
-<Route
+        <Route
           path="/style/:styleId"
           element={
             <IsPrivate>

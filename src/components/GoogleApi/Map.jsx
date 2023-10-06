@@ -1,7 +1,11 @@
 //React way - click info
 import React, { useEffect, useState } from "react";
-import { Loader } from "@googlemaps/js-api-loader"; // Import the Loader from the package
-
+import { Loader } from "@googlemaps/js-api-loader";
+import event from "../../assets/event.jpg"
+import { Card } from "react-bootstrap";
+import greenjuice from "../../assets/greenjuice.png"
+import yayi from "../../assets/yayi.png"
+import hoo from "../../assets/hoo.png"
 function Map() {
   const [map, setMap] = useState(null);
   const [marker, setMarker] = useState(null);
@@ -15,7 +19,7 @@ function Map() {
 
     // Create a new instance of the Loader with your API key
     const loader = new Loader({
-      apiKey: "AIzaSyBTqoXLNCSJV4jiZdF9MlC-7lZQAFuYGUU", // Replace with your actual API key
+      apiKey: "AIzaSyBTqoXLNCSJV4jiZdF9MlC-7lZQAFuYGUU", 
       version: "weekly", // You can specify the version here
     });
 
@@ -86,8 +90,38 @@ function Map() {
 
   return (
     <div>
-      <h1>Map</h1>
-      <div id="map" style={{ height: "400px", width: "100%" }}></div>
+     
+     <Card >
+     <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+      <Card.Body className="text-center">
+      <Card.Title className="mb-5" style={{ fontSize: "39px" }}>Get a Free Smoothie Every day!🥤</Card.Title>
+      <Card.Img  className="pb-5" variant="top" src={hoo} style={{ width:"20%", height: "800px", objectFit: "cover" }} />
+      <Card.Img  className="pb-5" variant="top" src={yayi} style={{ width:"40%", height: "800px", objectFit: "cover" }} />
+      <Card.Img  className="pb-5" variant="top" src={greenjuice} style={{ width:"40%", height: "800px", objectFit: "cover" }} />
+      
+      <Card.Text style={{
+  maxWidth: "80%", 
+  textAlign: "center",
+  fontSize: "20px", 
+  color: "green", 
+  margin: "0 auto",
+}}>
+          Round up your besties because it's smoothie o’clock at the WPB GreenMarket! It’s the perfect recipe for a
+          refreshing Saturday with your favorite girls! If you share this event 3 times in social media, we randomly choose 1 person EVERYDAY and present FREE smoothie voucher! Don't miss this awesome event! See you October 7!
+        </Card.Text>
+      </Card.Body>
+      </div>
+    </Card>
+     
+  
+      
+    <div id="map" style={{ height: "60vh", width: "100%", margin: "auto" }}></div>
     </div>
   );
 }

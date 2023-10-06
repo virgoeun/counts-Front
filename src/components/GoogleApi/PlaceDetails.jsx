@@ -25,12 +25,12 @@ function PlaceDetails() {
 
   return (
     <div>
-      <h1>Place Details</h1>
+      {/* <h1>Place Details</h1> */}
       {place ? (
         <div>
-          <h2>{place.name}</h2>
-          <p>Rating: {place.rating}</p>
-          <p>Phone: {place.formatted_phone_number}</p>
+          <h2 className="mt-5 mb-5" style={{ color: 'green' }}>{place.name} X Counts Collaboration 💚</h2>
+          <p style={{ fontSize: '20px' }}>Rating: {place.rating} ⭐️⭐️⭐️⭐️</p>
+          {/* <p>Phone: {place.formatted_phone_number}</p> */}
         </div>
       ) : (
         <p>Loading place details...</p>

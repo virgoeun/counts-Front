@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import { Button, Card } from "react-bootstrap";
 const API_URL = "http://localhost:5005";
 
 function EachWorkout() {
@@ -25,41 +25,57 @@ function EachWorkout() {
       });
   }, [workoutId]); // Fetch data whenever workoutId changes
 
- 
-
   return (
     <div>
       {workout ? (
-        <>
-          <h2>Workout</h2>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <h2 className="mt-5">Workout</h2>
           <h3>{workout.title}</h3>
           {workout.imageUrl && (
-            <img src={workout.imageUrl} alt={workout.title} width="300" />
+            <img
+              src={workout.imageUrl}
+              alt={workout.title}
+              width="300"
+              className="mb-3"
+            />
           )}
-        
-    
-          <p>Description: {workout.description}</p>
+          <p
+            style={{ maxWidth: "440px", textAlign: "center", color: "#808080" }}
+            className="mb-3"
+          >
+            Description: {workout.description}
+          </p>
           <h3>Price: 25.55€</h3>
-          <Link to="/joke" > 
-                <button
-                  style={{
-                    marginTop: "0px",
-                    padding: "3px 9px",
-                    cursor: "pointer",
-                    backgroundColor: "Pink",
-                    color: "black",
-                    fontWeight:"bold",
-                    border: "none",
-                    borderRadius: "5px",
-                    fontSize: "12px",
-                  }}
-                  // onClick={() => window.location.href = 'https://www.aloyoga.com/products/m3193r-conquer-1-4-zip-reform-long-sleeve-navy'}
-                >
-                  
-                  Add to Cart
-                </button>
-                </Link>
-        </>
+          <Link to="/joke">
+            <button
+              style={{
+                marginTop: "10px",
+
+                padding: "12px 25px",
+                cursor: "pointer",
+                backgroundColor: "Pink",
+                color: "black",
+                fontWeight: "bold",
+                border: "none",
+                borderRadius: "5px",
+                fontSize: "22px",
+              }}
+            >
+              Add to Cart
+            </button>
+          </Link>
+          <Link to="/workout">
+            <Button variant="link" id="backtostyle-btn" className="mt-2">
+              Back to Workout List
+            </Button>
+          </Link>
+        </div>
       ) : (
         <p>Loading workout...</p>
       )}

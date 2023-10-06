@@ -3,6 +3,7 @@ import React from "react";
 import ChallengePopupFunction from "./ChallengePopupFunction";
 import "../ProfilePopup/Popup.css";
 import { useState, useEffect } from "react";
+import event from "../../assets/event.jpg";
 
 export default function ChallengePopup() {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -11,7 +12,7 @@ export default function ChallengePopup() {
   useEffect(() => {
     setTimeout(() => {
       setTimedPopup(true);
-    }, 3000); //edit it later!
+    }, 100); //edit it later!
   }, []);
 
   return (

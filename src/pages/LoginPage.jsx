@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import { Button, Form } from "react-bootstrap";
 
 const API_URL = "http://localhost:5005";
 //const API_URL = "https://counts-back.onrender.com"
@@ -41,10 +42,12 @@ function LoginPage() {
     <div className="LoginPage">
       <h1>Login</h1>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
+      <Form onSubmit={handleLoginSubmit}>
+<Form.Group> 
+        <Form.Label>Email:</Form.Label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
-
+        </Form.Group>
+        <Form.Group> 
         <label>Password:</label>
         <input
           type="password"
@@ -52,9 +55,11 @@ function LoginPage() {
           value={password}
           onChange={handlePassword}
         />
-
-        <button type="submit">Login</button>
-      </form>
+         </Form.Group>
+         <Form.Group>
+        <Button variant="primary"type="submit">Login</Button>
+        </Form.Group>
+      </Form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>

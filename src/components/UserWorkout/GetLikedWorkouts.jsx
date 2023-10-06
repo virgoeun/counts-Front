@@ -3,6 +3,8 @@ import axios from "axios";
 import LikeWorkoutButton from "./LikeWorkoutButton";
 import { Link } from "react-router-dom";
 
+import { Card, Button } from "react-bootstrap";
+
 const API_URL = "http://localhost:5005";
 
 const GetLikedWorkouts = () => {
@@ -31,27 +33,38 @@ const GetLikedWorkouts = () => {
 
   return (
     <div>
-      
-      <h2>Your FAV Workouts:</h2>
-      {likedWorkouts.map((workout) => (
-        <div key={workout._id} style={{ marginBottom: "20px" }}>
-           
-          <h3>{workout.title}</h3>
-          <img
-            src={workout.imageUrl}
-            alt={workout.title}
-            style={{ width: "300px", height: "390px" }}
-          />
-          
-          <LikeWorkoutButton
-            workoutId={workout._id}
-            onUpdateLikeCount={() => {
-              // Do something when like count is updated
-            }}
-          />
-       <Link to={`/workout/${workout._id}`}>Go to Programm</Link>
-        </div>
-      ))}
+      <h1 className="mt-5 mb-5">Your  ❤️ Workouts:</h1>
+      <div
+        className="card-container d-flex flex-wrap justify-content-center align-items-center"
+        style={{ gap: "40px" }}
+      >
+        {likedWorkouts.map((workout) => (
+          <Card
+            key={workout._id}
+            className="" style={{ marginBottom: "20px", width: "300px" }}
+          >
+            <Card.Header>
+              <Card.Title className="text-danger" style={{ fontSize: "1em" }}>
+                {workout.title}
+              </Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Card.Img
+                src={workout.imageUrl}
+                alt={workout.title}
+                style={{ width: "100%", height: "230px", objectFit: "cover" }}
+              />
+              <LikeWorkoutButton
+                workoutId={workout._id}
+                onUpdateLikeCount={() => {}}
+              />
+              <Link to={`/workout/${workout._id}`} className="text-info">
+                <Button variant="outline-danger">Go to Program</Button>
+              </Link>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 };

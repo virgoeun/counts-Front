@@ -35,9 +35,9 @@ function AdminProfilePage() {
   }, [user, navigate]);
   console.log("Profile", adminProfile); //
   return (
-    <div className="Admin-profile-details">
-      <h2>Hello 👋 {adminProfile.userName}!</h2>
-      <p>Email: {adminProfile.email}</p>
+    <div className="Admin-profile-details mb-5 mt-5">
+      <h2 className="mt-5 mb-5">Hello 👋 {adminProfile.userName}!</h2>
+      <p className="mt-5 mb-5">Email: {adminProfile.email}</p>
       <div className="geocode-container">
         <GeocodeForm />
       </div>

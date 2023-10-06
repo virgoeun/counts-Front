@@ -3,11 +3,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import AddActivity from "../components/Activity/AddActivity";
 import Video from "./Video";
+import { Card, Button, Form, FormGroup } from "react-bootstrap";
+import Music from "./Music";
+import Checkin from "../pages/Checkin";
+import Popup from "./ProfilePopup/Popup";
 
 const API_URL = "http://localhost:5005";
 
 function ProfileDetails({ user }) {
-  console.log("USERID HERE", user._id);
+  console.log("USERID HERE", user);
   const [profile, setProfile] = useState([]);
 
   const getProfile = () => {
@@ -28,36 +32,72 @@ function ProfileDetails({ user }) {
   console.log("Profile ", profile);
 
   return (
-    <div key="profile-card" className="Profile-card">
-      <h2>Hello 👋 {user.userName}!</h2>
-      <p>Email: {user.email}</p>
+    <div key="profile-card" className="Profile-card mb-5 mt-5">
+    <h2>Hello 👋 {user.userName}!</h2>
+    <p>Email: {user.email}</p>
+  
+    <Checkin />
+    <div className="container mb-5 mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6 mb-3">
+          <Button
+            variant="outline-info"
+            className="w-100"
+            style={{ fontSize: '1.5rem' }}
+          >
+            <Link to="/challenge" style={{ textDecoration: 'none', color: '#FF1493' }}>This Week's Challenge 🔥</Link>
+          </Button>
+        </div>
+        <div className="col-md-6 mb-3">
+          <Button
+            variant="outline-info"
+            className="w-100"
+            style={{ fontSize: '1.5rem' }}
+          >
+            <Link to="/bookmarks" style={{ textDecoration: 'none', color: '#FF1493' }}>Check your Faves ✨</Link>
+          </Button>
+        </div>
+        <div className="col-md-6 mb-3">
+          <Button
+            variant="outline-info"
+            className="w-100"
+            style={{ fontSize: '1.5rem' }}
+          >
+            <Link to="/style" style={{ textDecoration: 'none', color: '#FF1493' }}>Counts STYLE 👠</Link>
+          </Button>
+        </div>
+        <div className="col-md-6">
+          <Button
+            variant="outline-info"
+            className="w-100"
+            style={{ fontSize: '1.5rem' }}
+          >
+            <Link to="/workout" style={{ textDecoration: 'none', color: '#FF1493' }}>Counts MOVE 💪</Link>
+          </Button>
 
-      {/* <AddActivity refreshProject={getProfile} /> */}
 
-      {/* <Video /> */}
-      <button>
-        <Link to="/checkin">Check-in Daily Log 📓</Link>
-      </button>
-      <button>
-        <Link to="/music">Go with Counts Music Flow 🎵 </Link>
-      </button>
-    
-      <button>
-        <Link to="/video">Check Count's Snack For You 🍿</Link>
-      </button>
 
-      <button>
-        <Link to="/challenge">Check This Week's Challenge 🔥 </Link>
-      </button>
-      <button>
-        <Link to="/bookmarks">Check your Faves ✨</Link>
-      </button>
-      <button>
-        <Link to="/style">Check your style FAVs ❤️</Link>
-      </button>
-      <button>
-        <Link to="/workout">Check your workout programs 💪</Link>
-      </button>
+
+        {/* <div className="col-md-4"> 
+      <Button variant="outline-info" className="m-2" style={{ width: '100%' }}>
+        <Link to="/checkin" style={{ textDecoration: 'none', color: '#FF1493' }}> Log Your Move 📓</Link>
+      </Button>
+     </div> */}
+ 
+      {/* <div className="col-md-4"> 
+      <Button variant="outline-info" className="m-2"style={{ width: '100%' }}>
+        <Link to="/music" style={{ textDecoration: 'none', color: '#FF1493' }}> Counts Music Flow 🎵 </Link>
+      </Button>
+      </div>
+     */}
+      {/* <Button variant="outline-info"className="m-2">
+        <Link to="/video" style={{ textDecoration: 'none', color: '#FF1493' }}> Count's Snack For You 🍿</Link>
+      </Button> */}
+</div>
+
+        </div>
+        </div>
+  
     </div>
   );
 }

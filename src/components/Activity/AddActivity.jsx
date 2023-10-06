@@ -89,7 +89,7 @@ function AddActivity(props) {
   return (
     <div className="AddTask-container">
       <Form.Group className="pt-4 pb-4">
-        <h3>Add Your Daily Acitivty</h3>
+        <h3>Add Your Daily MOVE</h3>
       </Form.Group>
       <Form>
         {/* <form onSubmit={handleSubmit}> */}
