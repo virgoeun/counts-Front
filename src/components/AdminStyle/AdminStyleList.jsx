@@ -1,14 +1,12 @@
-
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import LikeStyleButton from "../Style/LikeStyleButton";
 import { Card, Button } from "react-bootstrap";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
-import "../../App.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import "../../App.css";
 
 const API_URL = "http://localhost:5005";
 
@@ -18,7 +16,6 @@ const AdminStyleList = () => {
   const [infoContent, setInfoContent] = useState({});
 
   const storedToken = localStorage.getItem("authToken");
-
 
   useEffect(() => {
     axios
@@ -56,10 +53,9 @@ const AdminStyleList = () => {
     }));
   };
 
-
   return (
     <div>
-      <h2 className="mb-5 mt-5">  Counts STYLE List</h2>
+      <h2 className="mb-5 mt-5"> Counts STYLE List</h2>
       <ul>
         {styles.map((style) => (
           <li key={style._id}>
@@ -81,20 +77,20 @@ const AdminStyleList = () => {
                   }}
                   onClick={() => handleInfoClick(style._id)}
                 >
-                 <FontAwesomeIcon icon={faCirclePlus} /> 
+                  <FontAwesomeIcon icon={faCirclePlus} />
                 </button>
               </div>
             )}
             <div className="mb-3 mt-3">
-                  <Link to={`/style/${style._id}`}>View Style</Link>
-                  </div>
+              <Link to={`/style/${style._id}`}>View Style</Link>
+            </div>
             <LikeStyleButton
               styleId={style._id}
               onUpdateLikeCount={updateLikeCount}
             />
-           
+
             <span>Likes: {style.likeCount}</span>
-          
+
             {modalVisibility[style._id] && (
               <div
                 style={{
@@ -131,57 +127,34 @@ const AdminStyleList = () => {
                     resize: "none",
                     fontSize: "12px",
                     color: "red",
-                    textAlign:"center"
+                    textAlign: "center",
                   }}
                 />
-                {/* <button
-                  style={{
-                    marginTop: "10px",
-                    padding: "3px 9px",
-                    cursor: "pointer",
-                    backgroundColor: "white",
-                    color: "grey",
-                    border: "none",
-                    borderRadius: "5px",
-                    fontSize: "10px",
-                  }}
-                  onClick={() => handleInfoClick(style._id)}
-                >
-                  Close
-                </button> */}
-                <Link to="/joke" > 
-                <button
-                  style={{
-                    marginTop: "0px",
-                    padding: "3px 9px",
-                    cursor: "pointer",
-                    backgroundColor: "Pink",
-                    color: "black",
-                    fontWeight:"bold",
-                    border: "none",
-                    borderRadius: "5px",
-                    fontSize: "12px",
-                  }}
-                  // onClick={() => window.location.href = 'https://www.aloyoga.com/products/m3193r-conquer-1-4-zip-reform-long-sleeve-navy'}
-                >
-                  
-                  Quick Add
-                </button>
+
+                <Link to="/joke">
+                  <button
+                    style={{
+                      marginTop: "0px",
+                      padding: "3px 9px",
+                      cursor: "pointer",
+                      backgroundColor: "Pink",
+                      color: "black",
+                      fontWeight: "bold",
+                      border: "none",
+                      borderRadius: "5px",
+                      fontSize: "12px",
+                    }}
+                  >
+                    Quick Add
+                  </button>
                 </Link>
               </div>
-              
             )}
           </li>
-          
         ))}
       </ul>
-
     </div>
   );
 };
 
 export default AdminStyleList;
-
-
-
-

@@ -223,7 +223,7 @@ export default function Chart() {
             <h2>Your Hydration Level(liters)</h2>
             <ResponsiveContainer width="100%" height={200}>
               <LineChart
-                width={800}
+                width={1000}
                 height={400}
                 data={waterFilteredData}
                 margin={{ top: 20, right: 30, left: 20, bottom: 5 }}

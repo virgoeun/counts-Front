@@ -52,7 +52,7 @@ function AddAmindWorkout({ refreshWorkouts }) {
             imageUrl: "",
           });
           refreshWorkouts();
-          navigate("/admin-workout");
+          navigate("/admin-profile");
         } else {
           console.error("Failed to create workout");
         }

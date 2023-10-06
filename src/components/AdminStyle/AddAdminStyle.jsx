@@ -53,7 +53,7 @@ function AddAmindStyle({ refreshStyles }) {
             imageUrl: "",
           });
           refreshStyles();
-          navigate("/admin-style");
+          navigate("/admin-profile");
         } else {
           console.error("Failed to create Style");
         }
