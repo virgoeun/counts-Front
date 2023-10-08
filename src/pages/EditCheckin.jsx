@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
-const API_URL = "https://counts-back.onrender.com";
+const API_URL = "http://localhost:5005";
 
 function EditCheckin() {
   const [date, setDate] = useState("");

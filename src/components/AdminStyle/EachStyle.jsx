@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 import { Button } from "react-bootstrap";
 
-const API_URL = "https://counts-back.onrender.com";
+const API_URL = "http://localhost:5005";
 
 function EachStyle() {
   const { styleId } = useParams();

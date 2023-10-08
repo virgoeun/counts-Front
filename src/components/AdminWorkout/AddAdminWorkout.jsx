@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import AdminWorkoutList from "./AdminWorkoutList";
 
-const API_URL = "https://counts-back.onrender.com";
+const API_URL = "http://localhost:5005";
 const storedToken = localStorage.getItem("authToken");
 
 function AddAmindWorkout({ refreshWorkouts }) {

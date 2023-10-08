@@ -4,7 +4,7 @@ import axios from "axios";
 import AddAmindWorkout from "../components/AdminWorkout/AddAdminWorkout";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "https://counts-back.onrender.com";
+const API_URL = "http://localhost:5005";
 
 function AdminWorkoutPage() {
   const [admindWorkouts, setAdminWorkouts] = useState([]);
