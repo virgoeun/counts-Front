@@ -5,7 +5,7 @@ import { ResponsiveContainer } from 'recharts';
 
 const Graph = (props) => {
   return (
-    <div className={classes.wrapper}>
+    <div className="wrapper">
       <ResponsiveContainer>
         <Chart />
       </ResponsiveContainer>

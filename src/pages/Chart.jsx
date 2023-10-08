@@ -163,8 +163,7 @@ export default function Chart() {
  
   return (
     <div
-      className={`${classes.wrapper} d-flex flex-column justify-content-center align-items-center`}
-    >
+      className="wrapper d-flex flex-column justify-content-center align-items-center">
       <Form.Group controlId="startDate" className="mb-4">
         <Form.Label className="mb-2 mt-2 pt-2">
           <FontAwesomeIcon icon={faCalendarDays} /> Choose Dates{" "}
