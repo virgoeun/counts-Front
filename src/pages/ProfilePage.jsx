@@ -21,7 +21,7 @@ function ProfilePage() {
     console.log("StoredToken", storedToken);
 
     axios
-      .get(`${API_URL}/api/profile`, {
+      .get(`${API_URL}/profile`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => setProfile(response.data))
