@@ -40,7 +40,7 @@ function Home() {
               </h1>
             </div>
 
-            <div class="image-container ">
+            <div className="image-container ">
               <img
                 src={DINO}
                 alt="Image 2/"
@@ -101,7 +101,7 @@ function Home() {
         <FontAwesomeIcon icon={faPersonWalking} className="fa-4x" />
         <h2 className="mt-5 mb-5">We Are<span className="text-Move"> Counts </span>! </h2>
 
-        <div class="image-container " className="m-5">
+        <div className="image-container m-5">
           <img
             src={mat}
             alt="Image 2/"
@@ -147,7 +147,7 @@ function Home() {
       </div>
       <div ref={blog} className="blog">
         <FontAwesomeIcon icon={faPersonWalking} className="fa-4x" />
-        <div class="image-container" className="mt-5">
+        <div className="image-container mt-5">
           <img
             src={smile}
             alt="Image 2/"

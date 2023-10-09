@@ -8,7 +8,7 @@ import Music from "./Music";
 import Checkin from "../pages/Checkin";
 import Popup from "./ProfilePopup/Popup";
 
-const API_URL = "https://counts-back.onrender.com";
+const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function ProfileDetails({ user }) {
   console.log("USERID HERE", user);

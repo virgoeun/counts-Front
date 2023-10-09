@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_URL = "https://counts-back.onrender.com";
+const API_URL = import.meta.env.VITE_SERVER_URL;
 //props?
 
 function ActivityDetails() {

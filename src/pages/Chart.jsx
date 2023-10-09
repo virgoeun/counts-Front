@@ -38,7 +38,7 @@ export default function Chart() {
   const [sleepFilteredData, setSleepFilteredData] = useState([]);
   const [sportsFilteredData, setSportsFilteredData] = useState({});
 
-  const API_URL = "https://counts-back.onrender.com";
+  const API_URL = import.meta.env.VITE_SERVER_URL;
 
   // this one works only for ARRAY! (not object -> that's why sports data should be turned into ARRAY: check the below "sportsDurationChartData" function)
   const filterDataByDateRange = (data, startDate, endDate) => {

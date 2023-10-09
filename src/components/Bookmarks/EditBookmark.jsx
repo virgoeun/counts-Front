@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 
-const API_URL = "https://counts-back.onrender.com";
+const API_URL = import.meta.env.VITE_SERVER_URL;
 
 const EditBookmark = () => {
   const { bookmarkId } = useParams();

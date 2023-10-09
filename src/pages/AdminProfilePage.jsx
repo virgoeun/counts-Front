@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import GeocodeForm from "../components/GoogleApi/Geocoder";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "https://counts-back.onrender.com";
+const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function AdminProfilePage() {
   const [adminProfile, setAdminProfile] = useState([]);

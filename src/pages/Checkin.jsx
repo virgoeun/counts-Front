@@ -18,7 +18,7 @@ import {
  faCalendarDays, faQuoteLeft
 } from "@fortawesome/free-solid-svg-icons";
 
-const API_URL = "https://counts-back.onrender.com";
+const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function Checkin() {
   const [checkin, setCheckin] = useState([]);

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import AdminStyleList from "./AdminStyleList";
 
 
-const API_URL = "https://counts-back.onrender.com";
+const API_URL = import.meta.env.VITE_SERVER_URL;
 const storedToken = localStorage.getItem("authToken");
 
 function AddAmindStyle({ refreshStyles }) {

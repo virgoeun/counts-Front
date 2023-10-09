@@ -6,7 +6,7 @@ function LikeStyleButton({ styleId, onUpdateLikeCount}) {
   const [liked, setLiked] = useState(false);
   const storedToken = localStorage.getItem("authToken");
 
-  const API_URL = "https://counts-back.onrender.com";
+  const API_URL = import.meta.env.VITE_SERVER_URL;
 
   useEffect(() => {
     // Fetch initial like status when the component mounts

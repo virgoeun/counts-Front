@@ -3,7 +3,7 @@ import axios from "axios";
 import LikedStyleButton from "./LikeStyleButton";
 import { Card, Button } from "react-bootstrap";
 
-const API_URL = "https://counts-back.onrender.com";
+const API_URL = import.meta.env.VITE_SERVER_URL;
 
 const GetLikedStyles = ({user}) => {
   const [likedStyles, setLikedStyles] = useState([]);

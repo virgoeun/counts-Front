@@ -10,7 +10,7 @@ function GeocodeForm() {
   };
 
   const storedToken = localStorage.getItem("authToken");
-  const API_URL = "https://counts-back.onrender.com"; // Define your API URL here
+  const API_URL = import.meta.env.VITE_SERVER_URL;
 
   const handleGeocodeClick = () => {
     // Make an axios GET request to your backend endpoint for geocoding

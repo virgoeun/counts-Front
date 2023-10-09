@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import LikeWorkoutButton from "../UserWorkout/LikeWorkoutButton";
 
-const API_URL = "https://counts-back.onrender.com";
+const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function AdminWorkoutList() {
   const [workouts, setWorkouts] = useState([]);

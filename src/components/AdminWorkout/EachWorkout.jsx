@@ -3,7 +3,8 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button, Card } from "react-bootstrap";
-const API_URL = "https://counts-back.onrender.com";
+
+const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function EachWorkout() {
   const { workoutId } = useParams();
