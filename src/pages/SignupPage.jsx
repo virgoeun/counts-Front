@@ -23,7 +23,7 @@ function SignupPage() {
     const requestBody = { email, password, userName: name };
 
     axios
-      .post(`${API_URL}/auth/signup`, requestBody)
+      .post(`${API_URL}/signup`, requestBody)
       .then((response) => {
         navigate("/profile");
       })
