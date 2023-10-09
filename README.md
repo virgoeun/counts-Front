@@ -15,7 +15,7 @@
 
 That is the motto of Counts GmbH. We welcome all kinds of movements and healthy habits, that are defined by iall different individuals. 
 
-Counts think that the current so-called 'health trends' often do more harms than goods. For example, many people struggle with eating disorders, healthy-food obsessions or workout obsessions although they might look 'fit' or 'toned' outside. We wanted to create a place that people can become healthier in theirs own terms and pace without comparing to others by tracking their own moves and inspiration page where users get inspirted to get their body move - even if it's just 10 minutes of walk. 
+Counts think that the current so-called 'health trends' often do more harms than goods. For example, many people struggle with eating disorders, healthy-food obsessions or workout obsessions although they might look 'fit' or 'toned' outside. We wanted to create a place that people can become healthier in theirs own terms and pace without comparing to others by tracking their own moves and inspiration page where users get inspired to get their body move - even if it's just 10 minutes of walk. 
 
 ## Main Functionality
 0. MERN Full-stack application: Mongo DB, Express, React and Node.Js. 
