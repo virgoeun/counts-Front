@@ -14,7 +14,6 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "../App.css"
-// import classes from "../components/ChartGroup/graph.module.css";
 import { Form, Col, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
@@ -68,6 +67,7 @@ export default function Chart() {
 
         // Extract sports duration data and aggregate it
         //because it's array (so neend to accumulate)++ or not(if no exisitng data...)
+        
         const sportsDurationDataRetrieved = data.reduce((accumulator, item) => {
           const date = item.date.split("T")[0];
 

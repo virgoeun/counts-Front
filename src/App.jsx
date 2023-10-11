@@ -1,8 +1,6 @@
 import "./App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import HomePage from "./pages/LandingPage/Homepage";
-import "./Fonts/Hello-Star.woff";
 import ProfilePage from "./pages/ProfilePage";
 import ActivityDetails from "./components/Activity/ActivityDetails";
 import Music from "./components/Music";

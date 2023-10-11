@@ -17,9 +17,10 @@ function Map() {
       lng: 13.3905125
     };
 
+    const apiKey = process.env.GOOGLE_API_KEY;
     // Create a new instance of the Loader with your API key
     const loader = new Loader({
-      apiKey: "AIzaSyBTqoXLNCSJV4jiZdF9MlC-7lZQAFuYGUU", 
+      apiKey:apiKey, 
       version: "weekly", // You can specify the version here
     });
 

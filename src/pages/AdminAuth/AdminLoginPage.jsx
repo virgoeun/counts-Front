@@ -22,7 +22,7 @@ function AdminLoginPage(props) {
     const requestBody = { email, password };
 
     axios
-      .post(`${API_URL}/auth/admin-login`, requestBody)
+      .post(`${API_URL}/api/admin-login`, requestBody)
       .then((response) => {
         console.log("JWT token", response.data.authToken);
 

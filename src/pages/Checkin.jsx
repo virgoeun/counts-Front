@@ -4,11 +4,9 @@ import "../App.css"
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Chart from "./Chart";
 import Graph from "../components/ChartGroup/ChartGroup";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../index.css";
 import AddActivity from "../components/Activity/AddActivity";
