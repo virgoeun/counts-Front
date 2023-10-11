@@ -161,17 +161,20 @@ export default function Chart() {
     console.log(filteredSportsData); //Reset isLoaded to show the "Check Activity Analysis" button
   };
 
-  console.log("filtered Water", waterFilteredData);
-  console.log("filtered SPOrts", sportsFilteredData); //object
-  console.log("filtered Sleep", sleepFilteredData);
+  console.log("💖filtered Water", waterFilteredData);
+  console.log("💖filtered SPOrts", sportsFilteredData); //object
+  console.log("💖filtered Sleep", sleepFilteredData);
 
   //sorting each data according to the date order (ascending)
   const sortedWaterData = waterFilteredData.sort(
     (a, b) => new Date(a.date) - new Date(b.date)
   );
+
   const sortedSleepData = sleepFilteredData.sort(
     (a, b) => new Date(a.date) - new Date(b.date)
   );
+  console.log("🚀 sortedWaterData:", sortedWaterData)
+  console.log("🚀 sortedSleepData:", sortedSleepData)
   
 
   //sorting sportsFilteredData because it's an object (not array -> so needs to turn it into array first)
@@ -187,8 +190,8 @@ export default function Chart() {
     (a, b) => new Date(a.date) - new Date(b.date)
   );
 
-  console.log("🚀 sportsSortedArr:", sportsSortedArr)
-  
+  console.log("🚀 sortedSportsData:", sortedSportsData)
+
   
   return (
     <div className="wrapper d-flex flex-column justify-content-center align-items-center">
