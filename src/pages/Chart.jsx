@@ -161,6 +161,8 @@ export default function Chart() {
     console.log(filteredSportsData) //Reset isLoaded to show the "Check Activity Analysis" button
   };
 
+  console.log('filtered Water', waterFilteredData )
+  console.log('filtered SPOrts', sportsFilteredData )
 
   //sorting each data according to the date order (ascending)
   // const sortedWaterData = waterFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
