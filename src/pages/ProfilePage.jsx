@@ -4,8 +4,6 @@ import ProfileDetails from "../components/ProfileDetails";
 import Popup from "../components/ProfilePopup/Popup";
 import GetLikedWorkouts from "../components/UserWorkout/GetLikedWorkouts";
 import GetLikedStyles from "../components/Style/GetLikedStyles";
-import SurveyApp from "../components/SurveyApp";
-import Checkin from "./Checkin";
 import Video from "../components/Video";
 import { Card, Button, Form, FormGroup } from "react-bootstrap";
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import LikedStyleButton from "./LikeStyleButton";
 import { Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
