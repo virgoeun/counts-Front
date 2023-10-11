@@ -69,9 +69,11 @@ const GetLikedStyles = ({user}) => {
               }}
             />
             {/* Add the appropriate link for style */}
-            <Button variant="outline-primary" onClick={() => window.location.href=`/style/${style._id}`}>
-              Go to Style
-            </Button>
+          
+
+            <Link to={`/style/${style._id}`} className="text-info">
+                <Button variant="outline-primary">Go to Style</Button>
+              </Link>
           </Card.Body>
         </Card>
       ))}

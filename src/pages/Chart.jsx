@@ -28,10 +28,11 @@ export default function Chart() {
   const [endDate, setEndDate] = useState(null);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showChart, setShowChart] = useState(false);
+
   const [waterData, setWaterData] = useState([]);
   const [sportsDurationData, setSportsDurationData] = useState([]);
   const [sleepData, setSleepData] = useState([]);
-  const [showChart, setShowChart] = useState(false);
 
   const [waterFilteredData, setWaterFilteredData] = useState([]);
   const [sleepFilteredData, setSleepFilteredData] = useState([]);
@@ -160,6 +161,11 @@ export default function Chart() {
     console.log(filteredSportsData) //Reset isLoaded to show the "Check Activity Analysis" button
   };
 
+
+  //sorting each data according to the date order (ascending)
+  const sortedWaterData = waterFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
+  const sortedSleepData = sleepFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
+  const sortedSportsData = sportsFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
  
   return (
     <div
@@ -225,7 +231,7 @@ export default function Chart() {
               <LineChart
                 width={1000}
                 height={400}
-                data={waterFilteredData}
+                data={sortedWaterData}
                 margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
               >
                 <CartesianGrid stroke="none" />
@@ -247,7 +253,7 @@ export default function Chart() {
           <div>
             <h2>Workout Duration (minutes)</h2>
             <ResponsiveContainer width="100%" height={200}>
-              <LineChart width={600} height={300} data={sportsFilteredData}>
+              <LineChart width={600} height={300} data={sortedSportsData}>
                 <CartesianGrid stroke="none" />
                 <XAxis dataKey="date" />
                 <YAxis />
@@ -267,7 +273,7 @@ export default function Chart() {
           <div>
             <h2>Sleep Duration (hours)</h2>
             <ResponsiveContainer width="100%" height={200}>
-              <LineChart data={sleepFilteredData}>
+              <LineChart data={sortedSleepData}>
                 <CartesianGrid stroke="none" />
                 <XAxis dataKey="date" />
                 <YAxis />
