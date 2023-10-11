@@ -13,7 +13,7 @@ import {
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import "../App.css"
+import "../App.css";
 import { Form, Col, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
@@ -61,14 +61,14 @@ export default function Chart() {
         // Extract water data
         const waterDataRetrieved = data.map((item) => ({
           date: item.date.split("T")[0],
-          water: item.water ? parseInt(item.water) : 0, 
+          water: item.water ? parseInt(item.water) : 0,
         }));
-        //parses the item.water to an integer using parseInt. 
+        //parses the item.water to an integer using parseInt.
         //If item.water is a truthy value, it parses it as an integer
 
         // Extract sports duration data and aggregate it
         //because it's array (so neend to accumulate)++ or not(if no exisitng data...)
-        
+
         const sportsDurationDataRetrieved = data.reduce((accumulator, item) => {
           const date = item.date.split("T")[0];
 
@@ -77,7 +77,8 @@ export default function Chart() {
               if (sport.durationInMinutes) {
                 const minutes = sport.durationInMinutes;
 
-                if (accumulator[date]) { //Checks if accumulator already has an entry for the current date.
+                if (accumulator[date]) {
+                  //Checks if accumulator already has an entry for the current date.
                   accumulator[date] += minutes;
                 } else {
                   accumulator[date] = minutes;
@@ -95,14 +96,13 @@ export default function Chart() {
           sleep: item.sleep ? parseFloat(item.sleep) : 0,
         }));
 
-        //if item.water is truthy (a valid numeric string), 
+        //if item.water is truthy (a valid numeric string),
         //it will be converted to an integer using parseInt. Otherwise, it will default to 0.
-       //ParseInt as well valid
+        //ParseInt as well valid
         // const sleepDataRetrieved = data.map((item) => ({
         //   date: item.date.split("T")[0],
         //   sleep: item.sleep ? parseInt(item.sleep) : 0,
         // }));
-
 
         // Convert sports duration data to an array and format hours with one decimal place
         const sportsDurationChartData = Object.keys(
@@ -158,31 +158,40 @@ export default function Chart() {
   const handleCloseChart = () => {
     setShowChart(false); // Close the chart
     setIsLoaded(false);
-    console.log(filteredSportsData) //Reset isLoaded to show the "Check Activity Analysis" button
+    console.log(filteredSportsData); //Reset isLoaded to show the "Check Activity Analysis" button
   };
 
-  console.log('filtered Water', waterFilteredData )
-  console.log('filtered SPOrts', sportsFilteredData ) //object
-  console.log('filtered Sleep', sleepFilteredData )
+  console.log("filtered Water", waterFilteredData);
+  console.log("filtered SPOrts", sportsFilteredData); //object
+  console.log("filtered Sleep", sleepFilteredData);
 
   //sorting each data according to the date order (ascending)
-  const sortedWaterData = waterFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
-  const sortedSleepData = sleepFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
+  const sortedWaterData = waterFilteredData.sort(
+    (a, b) => new Date(a.date) - new Date(b.date)
+  );
+  const sortedSleepData = sleepFilteredData.sort(
+    (a, b) => new Date(a.date) - new Date(b.date)
+  );
   
+
   //sorting sportsFilteredData because it's an object (not array -> so needs to turn it into array first)
 
   let sportsSortedArr = [];
-  
-  for (let date in sportsFilteredData) {
+ 
 
+  for (let date in sportsFilteredData) {
     sportsSortedArr.push([date, sportsFilteredData[date]]);
   }
 
-  const sortedSportsData = sportsSortedArr.sort((a,b) => new Date(a.date) - new Date(b.date))
- 
+  const sortedSportsData = sportsSortedArr.sort(
+    (a, b) => new Date(a.date) - new Date(b.date)
+  );
+
+  console.log("🚀 sportsSortedArr:", sportsSortedArr)
+  
+  
   return (
-    <div
-      className="wrapper d-flex flex-column justify-content-center align-items-center">
+    <div className="wrapper d-flex flex-column justify-content-center align-items-center">
       <Form.Group controlId="startDate" className="mb-4">
         <Form.Label className="mb-2 mt-2 pt-2">
           <FontAwesomeIcon icon={faCalendarDays} /> Choose Dates{" "}
