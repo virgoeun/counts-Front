@@ -231,7 +231,7 @@ export default function Chart() {
               <LineChart
                 width={1000}
                 height={400}
-                data={sortedWaterData}
+                data={waterFilteredData}
                 margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
               >
                 <CartesianGrid stroke="none" />
@@ -253,7 +253,7 @@ export default function Chart() {
           <div>
             <h2>Workout Duration (minutes)</h2>
             <ResponsiveContainer width="100%" height={200}>
-              <LineChart width={600} height={300} data={sortedSportsData}>
+              <LineChart width={600} height={300} data={sportsFilteredData}>
                 <CartesianGrid stroke="none" />
                 <XAxis dataKey="date" />
                 <YAxis />
@@ -273,7 +273,7 @@ export default function Chart() {
           <div>
             <h2>Sleep Duration (hours)</h2>
             <ResponsiveContainer width="100%" height={200}>
-              <LineChart data={sortedSleepData}>
+              <LineChart data={sleepFilteredData}>
                 <CartesianGrid stroke="none" />
                 <XAxis dataKey="date" />
                 <YAxis />
