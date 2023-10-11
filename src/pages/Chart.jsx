@@ -194,9 +194,9 @@ export default function Chart() {
   // ***************************************************
 
   
-  const sportsFilteredArray = Object.entries(sportsFilteredData).map(([date, minutes]) => ({
+  const sportsFilteredArray = Object.entries(sportsFilteredData).map(([date, minutesObj]) => ({
     date,
-    minutes
+    minutes: minutesObj.minutes, // Extract minutes from the object
   }));
   
   // Sort by date
