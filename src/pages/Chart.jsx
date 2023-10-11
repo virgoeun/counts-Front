@@ -162,13 +162,23 @@ export default function Chart() {
   };
 
   console.log('filtered Water', waterFilteredData )
-  console.log('filtered SPOrts', sportsFilteredData )
+  console.log('filtered SPOrts', sportsFilteredData ) //object
   console.log('filtered Sleep', sleepFilteredData )
 
   //sorting each data according to the date order (ascending)
   const sortedWaterData = waterFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
-  // const sortedSleepData = sleepFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
-  const sortedSportsData = sportsFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
+  const sortedSleepData = sleepFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
+  
+  //sorting sportsFilteredData because it's an object (not array -> so needs to turn it into array first)
+
+  let sportsSortedArr = [];
+  
+  for (let date in sportsFilteredData) {
+
+    sportsSortedArr.push([date, sportsFilteredData[date]]);
+  }
+
+  const sortedSportsData = sportsSortedArr.sort((a,b) => new Date(a.date) - new Date(b.date))
  
   return (
     <div
@@ -234,7 +244,7 @@ export default function Chart() {
               <LineChart
                 width={1000}
                 height={400}
-                data={waterFilteredData}
+                data={sortedWaterData}
                 margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
               >
                 <CartesianGrid stroke="none" />
@@ -256,7 +266,7 @@ export default function Chart() {
           <div>
             <h2>Workout Duration (minutes)</h2>
             <ResponsiveContainer width="100%" height={200}>
-              <LineChart width={600} height={300} data={sportsFilteredData}>
+              <LineChart width={600} height={300} data={sortedSportsData}>
                 <CartesianGrid stroke="none" />
                 <XAxis dataKey="date" />
                 <YAxis />
@@ -276,7 +286,7 @@ export default function Chart() {
           <div>
             <h2>Sleep Duration (hours)</h2>
             <ResponsiveContainer width="100%" height={200}>
-              <LineChart data={sleepFilteredData}>
+              <LineChart data={sortedSleepData}>
                 <CartesianGrid stroke="none" />
                 <XAxis dataKey="date" />
                 <YAxis />
