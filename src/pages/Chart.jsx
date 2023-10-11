@@ -163,11 +163,12 @@ export default function Chart() {
 
   console.log('filtered Water', waterFilteredData )
   console.log('filtered SPOrts', sportsFilteredData )
+  console.log('filtered Sleep', sleepFilteredData )
 
   //sorting each data according to the date order (ascending)
-  // const sortedWaterData = waterFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
+  const sortedWaterData = waterFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
   // const sortedSleepData = sleepFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
-  // const sortedSportsData = sportsFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
+  const sortedSportsData = sportsFilteredData.sort((a,b) => new Date(a.date) - new Date(b.date))
  
   return (
     <div
