@@ -26,7 +26,7 @@ function AdminSignupPage() {
     // If POST request is successful redirect to login page
     // If the request resolves with an error, set the error message in the state
     axios
-      .post(`${API_URL}/api/admin-signup`, requestBody)
+      .post(`${API_URL}/auth/admin-signup`, requestBody)
       .then((response) => {
         navigate("/admin-login");
       })
