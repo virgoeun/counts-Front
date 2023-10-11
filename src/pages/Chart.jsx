@@ -109,10 +109,10 @@ export default function Chart() {
           sportsDurationDataRetrieved
         ).map((date) => ({
           date,
-          minutes: sportsDurationDataRetrieved[date],
+          minutes: parseFloat(sportsDurationDataRetrieved[date]) || 0,  // Convert string to a float or default to 0
         }));
-        console.log("sports OBJECT", sportsDurationDataRetrieved);
-        console.log("sports ARRAY", sportsDurationChartData);
+        // console.log("sports OBJECT", sportsDurationDataRetrieved);
+        // console.log("sports ARRAY", sportsDurationChartData);
 
         setWaterData(waterDataRetrieved);
         setSportsDurationData(sportsDurationChartData);
@@ -158,11 +158,10 @@ export default function Chart() {
   const handleCloseChart = () => {
     setShowChart(false); // Close the chart
     setIsLoaded(false);
-    console.log(filteredSportsData); //Reset isLoaded to show the "Check Activity Analysis" button
   };
 
   console.log("💖filtered Water", waterFilteredData);
-  console.log("💖filtered SPOrts", sportsFilteredData); //object
+  console.log("💖filtered SPOrts", sportsFilteredData); 
   console.log("💖filtered Sleep", sleepFilteredData);
 
   //sorting each data according to the date order (ascending)
@@ -173,22 +172,28 @@ export default function Chart() {
   const sortedSleepData = sleepFilteredData.sort(
     (a, b) => new Date(a.date) - new Date(b.date)
   );
+
+  const sortedSportsData = sportsFilteredData.sort(
+    (a, b) => new Date(a.date) - new Date(b.date)
+  );
   console.log("🚀 sortedWaterData:", sortedWaterData)
   console.log("🚀 sortedSleepData:", sortedSleepData)
   
-
+// ***************************************************
   //sorting sportsFilteredData because it's an object (not array -> so needs to turn it into array first)
 
-  let sportsSortedArr = [];
+  // let sportsSortedArr = [];
  
 
-  for (let date in sportsFilteredData) {
-    sportsSortedArr.push([date, sportsFilteredData[date]]);
-  }
+  // for (let date in sportsFilteredData) {
+  //   sportsSortedArr.push([date, sportsFilteredData[date]]);
+  // }
 
-  const sortedSportsData = sportsSortedArr.sort(
-    (a, b) => new Date(a.date) - new Date(b.date)
-  );
+  // const sortedSportsData = sportsSortedArr.sort(
+  //   (a, b) => new Date(a.date) - new Date(b.date)
+  // );
+
+  // ***************************************************
 
   console.log("🚀 sortedSportsData:", sortedSportsData)
 
