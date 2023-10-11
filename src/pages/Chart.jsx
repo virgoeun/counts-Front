@@ -173,9 +173,7 @@ export default function Chart() {
     (a, b) => new Date(a.date) - new Date(b.date)
   );
 
-  const sortedSportsData = sportsFilteredData.sort(
-    (a, b) => new Date(a.date) - new Date(b.date)
-  );
+  
   console.log("🚀 sortedWaterData:", sortedWaterData)
   console.log("🚀 sortedSleepData:", sortedSleepData)
   
@@ -195,7 +193,16 @@ export default function Chart() {
 
   // ***************************************************
 
-  console.log("🚀 sortedSportsData:", sortedSportsData)
+  
+  const sportsFilteredArray = Object.entries(sportsFilteredData).map(([date, minutes]) => ({
+    date,
+    minutes
+  }));
+  
+  // Sort by date
+  sportsFilteredArray.sort((a, b) => new Date(a.date) - new Date(b.date));
+  
+  console.log("🚀 sportsFilteredArray:", sportsFilteredArray)
 
   
   return (
@@ -283,7 +290,7 @@ export default function Chart() {
           <div>
             <h2>Workout Duration (minutes)</h2>
             <ResponsiveContainer width="100%" height={200}>
-              <LineChart width={600} height={300} data={sortedSportsData}>
+              <LineChart width={600} height={300} data={sportsFilteredArray}>
                 <CartesianGrid stroke="none" />
                 <XAxis dataKey="date" />
                 <YAxis />
